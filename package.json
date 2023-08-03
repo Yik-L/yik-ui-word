@@ -5,7 +5,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "less": "^4.1.3",
     "vitepress": "^1.0.0-beta.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@yik_l/ui": "^1.0.1"
+  }
 }

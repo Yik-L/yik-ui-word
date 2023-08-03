@@ -2,12 +2,17 @@ import {
   computed,
   getCurrentInstance,
   getCurrentScope,
+  init_vue_runtime_esm_browser,
   onMounted,
   onScopeDispose,
   ref,
   unref,
   watchEffect
-} from "./chunk-TNURRTOV.js";
+} from "./chunk-YGHPH4RB.js";
+
+// node_modules/@vueuse/shared/node_modules/vue-demi/lib/index.mjs
+init_vue_runtime_esm_browser();
+init_vue_runtime_esm_browser();
 
 // node_modules/@vueuse/shared/index.mjs
 function tryOnScopeDispose(fn) {
@@ -44,6 +49,10 @@ var camelize = cacheStringFunction((str) => {
 function identity(arg) {
   return arg;
 }
+
+// node_modules/@vueuse/core/node_modules/vue-demi/lib/index.mjs
+init_vue_runtime_esm_browser();
+init_vue_runtime_esm_browser();
 
 // node_modules/@vueuse/core/index.mjs
 function unrefElement(elRef) {
@@ -168,4 +177,4 @@ export {
   unrefElement,
   useMediaQuery
 };
-//# sourceMappingURL=chunk-UBVZP62B.js.map
+//# sourceMappingURL=chunk-CZPYITVG.js.map

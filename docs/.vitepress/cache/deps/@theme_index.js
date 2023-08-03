@@ -1,10 +1,12 @@
 import {
   useMediaQuery
-} from "./chunk-UBVZP62B.js";
+} from "./chunk-CZPYITVG.js";
 import {
   computed,
+  init_vue_runtime_esm_browser,
   ref
-} from "./chunk-TNURRTOV.js";
+} from "./chunk-YGHPH4RB.js";
+import "./chunk-CF3WPAMV.js";
 
 // node_modules/vitepress/dist/client/theme-default/index.js
 import "E:/word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
@@ -30,6 +32,7 @@ import { default as default8 } from "E:/word/yik-ui/node_modules/vitepress/dist/
 import { default as default9 } from "E:/word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
 
 // node_modules/vitepress/dist/client/theme-default/composables/sidebar.js
+init_vue_runtime_esm_browser();
 import { useRoute } from "vitepress";
 
 // node_modules/vitepress/dist/client/theme-default/support/utils.js

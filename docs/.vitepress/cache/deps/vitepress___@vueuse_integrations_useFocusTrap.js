@@ -1,11 +1,17 @@
 import {
   tryOnScopeDispose,
   unrefElement
-} from "./chunk-UBVZP62B.js";
+} from "./chunk-CZPYITVG.js";
 import {
+  init_vue_runtime_esm_browser,
   ref,
   watch
-} from "./chunk-TNURRTOV.js";
+} from "./chunk-YGHPH4RB.js";
+import "./chunk-CF3WPAMV.js";
+
+// node_modules/@vueuse/integrations/node_modules/vue-demi/lib/index.mjs
+init_vue_runtime_esm_browser();
+init_vue_runtime_esm_browser();
 
 // node_modules/tabbable/dist/index.esm.js
 var candidateSelectors = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", "a[href]:not([inert])", "button:not([inert])", "[tabindex]:not(slot):not([inert])", "audio[controls]:not([inert])", "video[controls]:not([inert])", '[contenteditable]:not([contenteditable="false"]):not([inert])', "details>summary:first-of-type:not([inert])", "details:not([inert])"];
