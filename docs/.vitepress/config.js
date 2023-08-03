@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩
- * @LastEditTime: 2023-08-03 09:19:01
+ * @LastEditTime: 2023-08-03 09:24:06
  * @FilePath: \yik-ui\docs\.vitepress\config.js
  * @Description:
  */
@@ -11,7 +11,7 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "YikUi",
-  // base: ".",
+  base: ".",
   description: "YikUi说明文档",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
