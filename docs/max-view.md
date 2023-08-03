@@ -1,6 +1,12 @@
-<!-- <script setup>
-import MaxView from '../vue/MaxView.vue'
-</script> -->
+<!--
+ * @Author: 刘岩 15136056318@163.com
+ * @Date: 2023-08-03 09:43:07
+ * @LastEditors: 刘岩 15136056318@163.com
+ * @LastEditTime: 2023-08-03 14:22:19
+ * @FilePath: \yik-ui\docs\max-view.md
+ * @Description:
+-->
+<ClientOnly>
 
 # 大屏适配组件
 
@@ -22,3 +28,5 @@ import MaxView from '../vue/MaxView.vue'
 | width      | 宽度       | string   | 1920px     |
 | height     | 高度       | string   | 1080px     |
 | isCover    | 是否自适应 | boolean  | false      |
+
+</ClientOnly>
