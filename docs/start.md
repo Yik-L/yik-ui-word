@@ -6,7 +6,6 @@
  * @FilePath: \yik-ui\docs\start.md
  * @Description:
 -->
-<ClientOnly>
 
 # 快速开始
 
@@ -34,5 +33,3 @@ app.mount("#app");
 ## 开始使用
 
 现在你可以启动项目了。 具体每个组件的使用方法, 请查阅 [每个组件的独立文档](./max-view.md).
-
-</ClientOnly>
