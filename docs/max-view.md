@@ -2,8 +2,8 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 09:43:07
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-03 16:38:57
- * @FilePath: \yik-ui\docs\max-view.md
+ * @LastEditTime: 2023-08-03 22:03:33
+ * @FilePath: /yik-ui/docs/max-view.md
  * @Description:
 -->
 
@@ -11,7 +11,7 @@
 
 大屏适配解决方案.
 
-## 基础用法
+## 示例代码
 
 ```vue
 <template>

@@ -1,9 +1,9 @@
 /*
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
- * @LastEditors: 刘岩
- * @LastEditTime: 2023-08-03 09:47:49
- * @FilePath: \yik-ui\docs\.vitepress\config.js
+ * @LastEditors: 刘岩 15136056318@163.com
+ * @LastEditTime: 2023-08-03 21:26:23
+ * @FilePath: /yik-ui/docs/.vitepress/config.js
  * @Description:
  */
 import { defineConfig } from "vitepress";
@@ -29,6 +29,7 @@ export default defineConfig({
           { text: "快速开始", link: "/start" },
           { text: "大屏适配组件", link: "/max-view" },
           { text: "无缝滚动", link: "/marquee" },
+          { text: "滚动加载", link: "/scroll" },
         ],
       },
     ],
