@@ -28,6 +28,7 @@ export default defineConfig({
         items: [
           { text: "快速开始", link: "/start" },
           { text: "大屏适配组件", link: "/max-view" },
+          { text: "无缝滚动", link: "../marquee/index" },
         ],
       },
     ],
