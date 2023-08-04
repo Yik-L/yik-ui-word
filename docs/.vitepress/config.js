@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 09:10:07
+ * @LastEditTime: 2023-08-04 11:08:11
  * @FilePath: \yik-ui-word\docs\.vitepress\config.js
  * @Description:
  */
@@ -31,6 +31,7 @@ export default defineConfig({
           { text: "无缝滚动", link: "/marquee" },
           { text: "滚动加载", link: "/scroll" },
           { text: "电子签名", link: "/sign" },
+          { text: "测试", link: "/test" },
         ],
       },
     ],

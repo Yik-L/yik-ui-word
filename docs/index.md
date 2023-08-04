@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "YikUi"
-  text: "YikUi文档说明"
-  tagline: 只用于vue3，常用组件
+  text: "组件文档说明"
+  tagline: 只用于自己使用，有什么BUG后果自负。
   actions:
     - theme: brand
       text: 开始使用
@@ -16,9 +16,9 @@ hero:
 
 features:
   - title: 电子签名组件
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 用于签名场景的组件，基于 Canvas 实现。
+  - title: 滚动加载
+    details: 瀑布流滚动加载，用于展示长列表，当列表即将滚动到底部时，会触发事件并加载更多列表项
+  - title: 无缝滚动
+    details: 常用场景:公告栏滚动播报、轮播图无缝切换 在滚动元素
 ---

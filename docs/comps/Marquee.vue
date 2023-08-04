@@ -1,24 +1,11 @@
 <!--
  * @Author: 刘岩 15136056318@163.com
- * @Date: 2023-08-03 21:20:03
+ * @Date: 2023-08-04 13:51:35
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 16:17:12
- * @FilePath: \yik-ui-word\docs\marquee.md
- * @Description:
+ * @LastEditTime: 2023-08-04 13:51:41
+ * @FilePath: \yik-ui-word\docs\comps\Marquee.vue
+ * @Description: 
 -->
-<script setup>
-  import Marquee from './comps/Marquee.vue'
-</script>
-
-# 无缝滚动组件
-
-常用场景:公告栏滚动播报、轮播图无缝切换 在滚动元素
-
-## 基础用法
-
-<Marquee></Marquee>
-
-```vue
 <template>
   <div>
     <YikMarquee
@@ -52,11 +39,3 @@
 import YikUi from "@yik_l/ui";
 const { YikMarquee } = YikUi;
 </script>
-```
-
-## 属性
-
-| **属性名** | **说明**                     | **类型** | **默认值**            |
-| ---------- | ---------------------------- | -------- | --------------------- |
-| direction  | 滚动方向                     | string   | 默认：X， 可选：(X,Y) |
-| speed      | 滚动速度（值越大滚动就越快） | string   | 1                     |

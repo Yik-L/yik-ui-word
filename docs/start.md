@@ -2,8 +2,8 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 09:43:07
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-03 14:20:06
- * @FilePath: \yik-ui\docs\start.md
+ * @LastEditTime: 2023-08-04 13:45:40
+ * @FilePath: \yik-ui-word\docs\start.md
  * @Description:
 -->
 
@@ -12,7 +12,7 @@
 ## 安装
 
 ```sh
-npm i @yik_l/ui
+npm i @yik_l/ui -S
 ```
 
 ## 用法

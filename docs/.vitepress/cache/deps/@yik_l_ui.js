@@ -578,22 +578,23 @@ var _sfc_main = {
     let boxHight = 0;
     let boxWidth = 0;
     onMounted(() => {
-      const yikMarquee = yikMarqueeRef.value;
-      yikMarqueeRef.value.style.overflow = "hidden";
-      boxHight = yikMarquee.children[0].clientHeight;
-      boxWidth = yikMarquee.clientWidth;
-      if (props.direction == "Y" && boxHight) {
-        startY();
-      }
-      if (props.direction == "X" && boxWidth) {
-        yikMarquee.style.display = "flex";
-        for (let index2 = 0; index2 < yikMarquee.children.length; index2++) {
-          const element = yikMarquee.children[index2];
-          element.style.flexShrink = "0";
-          element.style.width = boxWidth + "px";
+      nextTick(() => {
+        const yikMarquee = yikMarqueeRef.value;
+        yikMarqueeRef.value.style.overflow = "hidden";
+        if (props.direction == "Y") {
+          boxHight = yikMarquee.children[0].clientHeight;
+          startY();
         }
-        startX();
-      }
+        if (props.direction == "X") {
+          yikMarquee.style.display = "flex";
+          for (let index2 = 0; index2 < yikMarquee.children.length; index2++) {
+            const element = yikMarquee.children[index2];
+            element.style["white-space"] = "nowrap";
+          }
+          boxWidth = yikMarquee.children[0].scrollWidth;
+          startX();
+        }
+      });
     });
     const startX = (_value) => {
       yikMarqueeRef.value.children[0].style.transform = `translateX(-${value.value}px)`;
