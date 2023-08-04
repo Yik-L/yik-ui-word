@@ -36,6 +36,6 @@
   </div>
 </template>
 <script setup>
-import YikUi from "@yik_l/ui";
+import YikUi from "./yik-ui.js";
 const { YikMarquee } = YikUi;
 </script>

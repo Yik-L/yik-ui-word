@@ -30,7 +30,7 @@
   </div>
 </template>
 <script setup>
-import YikUi from "@yik_l/ui";
+import YikUi from "./yik-ui.js";
 const { YikScroll } = YikUi;
 import { ref, nextTick, reactive, toRefs } from "vue";
 const content = ref(null);
