@@ -1,4 +1,20 @@
-import { ref, watch, onMounted, onUnmounted, openBlock, createElementBlock, renderSlot, getCurrentInstance, onBeforeUnmount, normalizeStyle, watchEffect, nextTick, shallowRef, useSlots, createCommentVNode } from "vue";
+import {
+  ref,
+  watch,
+  onMounted,
+  onUnmounted,
+  openBlock,
+  createElementBlock,
+  renderSlot,
+  getCurrentInstance,
+  onBeforeUnmount,
+  normalizeStyle,
+  watchEffect,
+  nextTick,
+  shallowRef,
+  useSlots,
+  createCommentVNode,
+} from "vue";
 const YikFocus = {
   mounted(el) {
     if (el.nodeName == "INPUT") {
@@ -7,7 +23,7 @@ const YikFocus = {
     if (el.nodeName != "INPUT") {
       console.error("你不应该把指令用在" + el.nodeName + "标签上");
     }
-  }
+  },
 };
 const YikPower = {
   mounted(el, binding) {
@@ -28,9 +44,8 @@ const YikPower = {
         el.remove();
       }
     }
-    if (callback)
-      callback(count);
-  }
+    if (callback) callback(count);
+  },
 };
 function parentNode(el) {
   const style = document.defaultView.getComputedStyle(el);
@@ -45,7 +60,7 @@ const YikLazy = {
     const _parentNode = parentNode(el.parentNode);
     const { arg, value, modifiers } = binding;
     const { height } = el.parentNode.getBoundingClientRect();
-    _parentNode.addEventListener("scroll", function() {
+    _parentNode.addEventListener("scroll", function () {
       const { top } = el.getBoundingClientRect();
       if (modifiers.comp) {
         if (height > top) {
@@ -57,7 +72,7 @@ const YikLazy = {
         }
       }
     });
-  }
+  },
 };
 class Scroll {
   /**
@@ -81,7 +96,7 @@ class Scroll {
     let beforeScrollTop = this._el.scrollTop;
     this._el.addEventListener("scroll", (e) => {
       let delta = this._el.scrollTop - beforeScrollTop;
-      delta >= 0 ? this._direction = "down" : this._direction = "up";
+      delta >= 0 ? (this._direction = "down") : (this._direction = "up");
       beforeScrollTop = this._el.scrollTop;
       let height = this._el.scrollHeight - this._el.clientHeight;
       if (this._watch)
@@ -89,7 +104,7 @@ class Scroll {
           top: this._el.scrollTop,
           height,
           direction: this._direction,
-          el: this._el
+          el: this._el,
         });
       if (this._el.scrollTop <= 0 && this._watchTop) {
         this._watchTop();
@@ -113,8 +128,8 @@ const _sfc_main$4 = {
   props: {
     scroll: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   emits: ["onBottom", "onTop", "onWatch"],
   setup(__props, { emit }) {
@@ -139,7 +154,7 @@ const _sfc_main$4 = {
         },
         watch: (data) => {
           emit("onWatch", data);
-        }
+        },
       });
       scroll.setTop(props.scroll);
       watch(
@@ -150,36 +165,43 @@ const _sfc_main$4 = {
       );
     });
     onUnmounted(() => {
-      if (scroll)
-        scroll = null;
+      if (scroll) scroll = null;
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        class: "yik-ui-page",
-        ref_key: "yikUiPageRef",
-        ref: yikUiPageRef
-      }, [
-        renderSlot(_ctx.$slots, "default"),
-        renderSlot(_ctx.$slots, "loading")
-      ], 512);
+      return (
+        openBlock(),
+        createElementBlock(
+          "div",
+          {
+            class: "yik-ui-page",
+            ref_key: "yikUiPageRef",
+            ref: yikUiPageRef,
+          },
+          [
+            renderSlot(_ctx.$slots, "default"),
+            renderSlot(_ctx.$slots, "loading"),
+          ],
+          512
+        )
+      );
     };
-  }
+  },
 };
 const _sfc_main$3 = {
   __name: "index",
   props: {
     width: {
       type: String,
-      default: "1920px"
+      default: "1920px",
     },
     height: {
       type: String,
-      default: "1080px"
+      default: "1080px",
     },
     isCover: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(__props) {
     const props = __props;
@@ -188,13 +210,18 @@ const _sfc_main$3 = {
     const that = getCurrentInstance();
     const zoomView = () => {
       const parentNode2 = that.refs.maxView.parentNode;
-      let view = maxView.value, viewWidth = parseInt(view.style.width), viewHeight = parseInt(view.style.height);
+      let view = maxView.value,
+        viewWidth = parseInt(view.style.width),
+        viewHeight = parseInt(view.style.height);
       if (props.isCover) {
         parentNode2.style.width = window.innerWidth + "px";
         parentNode2.style.height = window.innerHeight + "px";
         parentNode2.style.display = "flex";
         parentNode2.style.justifyContent = "center";
-        const scale = window.innerWidth / window.innerHeight < viewWidth / viewHeight ? window.innerWidth / viewWidth : window.innerHeight / viewHeight;
+        const scale =
+          window.innerWidth / window.innerHeight < viewWidth / viewHeight
+            ? window.innerWidth / viewWidth
+            : window.innerHeight / viewHeight;
         view.style.transform = `scale(${scale})`;
       } else {
         let w = window.innerWidth / viewWidth;
@@ -209,30 +236,36 @@ const _sfc_main$3 = {
       maxView.value.style["box-sizing"] = "border-box";
       zoomView();
       window.onresize = () => {
-        if (timeout)
-          clearTimeout(timeout);
+        if (timeout) clearTimeout(timeout);
         timeout = setTimeout(() => {
           zoomView();
         }, 500);
       };
-    }), onBeforeUnmount(() => {
-      window.onresize = null;
-    });
+    }),
+      onBeforeUnmount(() => {
+        window.onresize = null;
+      });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        ref_key: "maxView",
-        ref: maxView,
-        class: "yik-ui-max-view",
-        style: normalizeStyle({
-          width: __props.width,
-          height: __props.height,
-          transformOrigin: (__props.isCover ? "center" : "left") + " top"
-        })
-      }, [
-        renderSlot(_ctx.$slots, "default")
-      ], 4);
+      return (
+        openBlock(),
+        createElementBlock(
+          "div",
+          {
+            ref_key: "maxView",
+            ref: maxView,
+            class: "yik-ui-max-view",
+            style: normalizeStyle({
+              width: __props.width,
+              height: __props.height,
+              transformOrigin: (__props.isCover ? "center" : "left") + " top",
+            }),
+          },
+          [renderSlot(_ctx.$slots, "default")],
+          4
+        )
+      );
     };
-  }
+  },
 };
 class Sign {
   constructor({
@@ -244,7 +277,7 @@ class Sign {
     //线条颜色
     bg,
     // 背景颜色或者背景图片
-    watch: watch2
+    watch: watch2,
   }) {
     this.canvas = el;
     this.ctx = this.canvas.getContext("2d");
@@ -319,7 +352,7 @@ class Sign {
         const y = e.pageY - offsetTop;
         this._array[this._array.length - 1].push({
           x,
-          y
+          y,
         });
         this.ctx.lineTo(x, y);
         this.ctx.lineJoin = "round";
@@ -335,7 +368,7 @@ class Sign {
         const y = e.touches[0].pageY - this.canvas.offsetTop;
         this._array[this._array.length - 1].push({
           x,
-          y
+          y,
         });
         this.ctx.lineTo(x, y);
         this.ctx.lineJoin = "round";
@@ -365,8 +398,7 @@ class Sign {
     this.canvas.ontouchend = () => {
       this.isDraw = false;
       this.ctx.closePath();
-      if (this._watch)
-        this._watch(this._array);
+      if (this._watch) this._watch(this._array);
     };
     this.canvas.onmousedown = () => {
       this._array.push([]);
@@ -380,8 +412,7 @@ class Sign {
     this.canvas.onmouseup = () => {
       this.isDraw = false;
       this.ctx.closePath();
-      if (this._watch)
-        this._watch(this._array);
+      if (this._watch) this._watch(this._array);
     };
   }
 }
@@ -391,39 +422,42 @@ const _sfc_main$2 = {
   props: {
     width: {
       type: Number,
-      default: 500
+      default: 500,
     },
     height: {
       type: Number,
-      default: 300
+      default: 300,
     },
     color: {
       type: String,
-      default: "#000"
+      default: "#000",
     },
     lineWidth: {
       type: Number,
-      default: 3
+      default: 3,
     },
     bg: {
-      default: "#fff"
+      default: "#fff",
     },
     value: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   setup(__props, { expose: __expose }) {
     const props = __props;
     const yikSignRef = ref(null);
     let lineList = [];
     let sign = null;
-    const stop = watchEffect(() => {
-      if (props.lineWidth && props.color && props.bg) {
-        nextTick(() => {
-          createSign();
-        });
-      }
+    let stop = null;
+    onMounted(() => {
+      stop = watchEffect(() => {
+        if (props.lineWidth && props.color && props.bg) {
+          nextTick(() => {
+            createSign();
+          });
+        }
+      });
     });
     const createSign = () => {
       if (sign) {
@@ -437,7 +471,7 @@ const _sfc_main$2 = {
         bg: props.bg,
         watch: (data) => {
           lineList = [...data];
-        }
+        },
       });
       if (props.value) {
         lineList = [...props.value];
@@ -446,8 +480,7 @@ const _sfc_main$2 = {
     };
     onUnmounted(() => {
       stop();
-      if (sign)
-        sign = null;
+      if (sign) sign = null;
     });
     __expose({
       save: () => {
@@ -459,17 +492,26 @@ const _sfc_main$2 = {
       },
       getLine: () => {
         return lineList;
-      }
+      },
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("canvas", {
-        width: __props.width,
-        height: __props.height,
-        ref_key: "yikSignRef",
-        ref: yikSignRef
-      }, null, 8, _hoisted_1);
+      return (
+        openBlock(),
+        createElementBlock(
+          "canvas",
+          {
+            width: __props.width,
+            height: __props.height,
+            ref_key: "yikSignRef",
+            ref: yikSignRef,
+          },
+          null,
+          8,
+          _hoisted_1
+        )
+      );
     };
-  }
+  },
 };
 const _sfc_main$1 = {
   __name: "index",
@@ -487,7 +529,7 @@ const _sfc_main$1 = {
         // 安卓终端
         /iPhone/,
         // iPhone
-        /iPad/
+        /iPad/,
         // iPad
       ];
       const ua = navigator.userAgent;
@@ -495,12 +537,12 @@ const _sfc_main$1 = {
         if (flag.test(ua)) {
           return {
             phone: true,
-            message: flag
+            message: flag,
           };
         }
       }
       return {
-        phone: false
+        phone: false,
       };
     };
     const isSlotsHidden = (flag) => {
@@ -536,21 +578,23 @@ const _sfc_main$1 = {
       isKeyboard();
     });
     return (_ctx, _cache) => {
-      return showSlot.value ? renderSlot(_ctx.$slots, "default", { key: 0 }) : createCommentVNode("", true);
+      return showSlot.value
+        ? renderSlot(_ctx.$slots, "default", { key: 0 })
+        : createCommentVNode("", true);
     };
-  }
+  },
 };
 const _sfc_main = {
   __name: "index",
   props: {
     speed: {
       type: Number,
-      default: 1
+      default: 1,
     },
     direction: {
       type: String,
-      default: "Y"
-    }
+      default: "Y",
+    },
   },
   setup(__props) {
     const props = __props;
@@ -605,26 +649,37 @@ const _sfc_main = {
         });
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        class: "yik-marquee",
-        ref_key: "yikMarqueeRef",
-        ref: yikMarqueeRef,
-        onMouseenter: _cache[0] || (_cache[0] = ($event) => isHovered.value = true),
-        onMouseleave: _cache[1] || (_cache[1] = () => {
-          isHovered.value = false;
-          if (__props.direction == "Y") {
-            startY();
-          }
-          if (__props.direction == "X") {
-            startX();
-          }
-        })
-      }, [
-        renderSlot(_ctx.$slots, "default"),
-        renderSlot(_ctx.$slots, "default")
-      ], 544);
+      return (
+        openBlock(),
+        createElementBlock(
+          "div",
+          {
+            class: "yik-marquee",
+            ref_key: "yikMarqueeRef",
+            ref: yikMarqueeRef,
+            onMouseenter:
+              _cache[0] || (_cache[0] = ($event) => (isHovered.value = true)),
+            onMouseleave:
+              _cache[1] ||
+              (_cache[1] = () => {
+                isHovered.value = false;
+                if (__props.direction == "Y") {
+                  startY();
+                }
+                if (__props.direction == "X") {
+                  startX();
+                }
+              }),
+          },
+          [
+            renderSlot(_ctx.$slots, "default"),
+            renderSlot(_ctx.$slots, "default"),
+          ],
+          544
+        )
+      );
     };
-  }
+  },
 };
 const yikLog = (message, type) => {
   let backgroundColor = "";
@@ -641,38 +696,38 @@ const yikLog = (message, type) => {
 let components = [
   {
     name: "YikScroll",
-    component: _sfc_main$4
+    component: _sfc_main$4,
   },
   {
     name: "YikMaxView",
-    component: _sfc_main$3
+    component: _sfc_main$3,
   },
   {
     name: "YikSign",
-    component: _sfc_main$2
+    component: _sfc_main$2,
   },
   {
     name: "YikIsKeyboard",
-    component: _sfc_main$1
+    component: _sfc_main$1,
   },
   {
     name: "YikMarquee",
-    component: _sfc_main
-  }
+    component: _sfc_main,
+  },
 ];
 let directives = [
   {
     name: "YikFocus",
-    directive: YikFocus
+    directive: YikFocus,
   },
   {
     name: "YikPower",
-    directive: YikPower
+    directive: YikPower,
   },
   {
     name: "YikLazy",
-    directive: YikLazy
-  }
+    directive: YikLazy,
+  },
 ];
 const install = (app) => {
   try {
@@ -694,8 +749,6 @@ const index = {
   YikSign: _sfc_main$2,
   YikFocus,
   YikMarquee: _sfc_main,
-  YikIsKeyboard: _sfc_main$1
+  YikIsKeyboard: _sfc_main$1,
 };
-export {
-  index as default
-};
+export { index as default };

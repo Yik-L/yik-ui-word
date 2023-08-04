@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-04 09:36:55
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 16:24:38
+ * @LastEditTime: 2023-08-04 16:26:44
  * @FilePath: \yik-ui-word\docs\comps\Sign.vue
  * @Description: 
 -->
@@ -36,9 +36,8 @@
 </template>
 <script setup>
 import YikUi from "./yik-ui.js";
-console.log(YikUi);
-const { YikSign } = YikUi;
 import { reactive, toRefs, ref } from "vue";
+const { YikSign } = YikUi;
 const yikSignRef = ref(null);
 const state = reactive({
   w: 520,
