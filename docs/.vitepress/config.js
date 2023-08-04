@@ -27,11 +27,11 @@ export default defineConfig({
         text: "组件",
         items: [
           { text: "快速开始", link: "/start" },
-          { text: "大屏适配组件", link: "/max-view" },
+          { text: "大屏适配", link: "/max-view" },
           { text: "无缝滚动", link: "/marquee" },
           { text: "滚动加载", link: "/scroll" },
           { text: "电子签名", link: "/sign" },
-          { text: "测试", link: "/test" },
+          { text: "监听键盘", link: "/keyboard" },
         ],
       },
     ],
