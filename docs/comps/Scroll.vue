@@ -2,18 +2,15 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 17:16:10
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-03 21:52:47
- * @FilePath: /yik-ui/docs/comps/Scroll.vue
+ * @LastEditTime: 2023-08-04 10:18:40
+ * @FilePath: \yik-ui-word\docs\comps\Scroll.vue
  * @Description: 
 -->
 <template>
   <button @click="scroll = 100">100</button>
   <button @click="scroll = 200">200</button>
-  <br />
-  <br />
   <YikScroll
     :scroll="scroll"
-    :key="scroll"
     @onBottom="handleBottom"
     @onTop="handleTop"
     @onWatch="handleWatch"
@@ -33,8 +30,7 @@
   </div>
 </template>
 <script setup>
-import YikUi from "@yik_l/ui";
-const { YikScroll } = YikUi;
+import { YikScroll } from "@yik_l/ui";
 import { ref, nextTick, reactive, toRefs } from "vue";
 const content = ref(null);
 const state = reactive({
@@ -77,11 +73,12 @@ const setTop = () => {
   color: #00db12;
 }
 button {
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #1a89fa;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
-  border-radius: 10px;
-  margin-right: 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>

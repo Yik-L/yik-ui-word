@@ -30,6 +30,7 @@ export default defineConfig({
           { text: "大屏适配组件", link: "/max-view" },
           { text: "无缝滚动", link: "/marquee" },
           { text: "滚动加载", link: "/scroll" },
+          { text: "电子签名", link: "/sign" },
         ],
       },
     ],

@@ -1,59 +1,56 @@
 {
-  "hash": "b1a58c2f",
-  "browserHash": "a97610e2",
+  "hash": "177edb43",
+  "browserHash": "41a965ad",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-browser.js",
       "file": "vue.js",
-      "fileHash": "8ba2e0ac",
+      "fileHash": "d78685e2",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "ab118dc6",
+      "fileHash": "ab9534ea",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "f660cdd1",
+      "fileHash": "0b8c2ac1",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "0997c232",
+      "fileHash": "55ad04ab",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "a51f0153",
+      "fileHash": "b9233255",
       "needsInterop": false
     },
     "@theme/index": {
       "src": "../../../../node_modules/vitepress/dist/client/theme-default/index.js",
       "file": "@theme_index.js",
-      "fileHash": "677009e6",
+      "fileHash": "292c3b24",
       "needsInterop": false
     },
     "@yik_l/ui": {
-      "src": "../../../../node_modules/@yik_l/ui/yik-ui.umd.js",
+      "src": "../../../../node_modules/@yik_l/ui/yik-ui.js",
       "file": "@yik_l_ui.js",
-      "fileHash": "7732cd10",
-      "needsInterop": true
+      "fileHash": "c20d138e",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-CZPYITVG": {
-      "file": "chunk-CZPYITVG.js"
+    "chunk-UBVZP62B": {
+      "file": "chunk-UBVZP62B.js"
     },
-    "chunk-YGHPH4RB": {
-      "file": "chunk-YGHPH4RB.js"
-    },
-    "chunk-CF3WPAMV": {
-      "file": "chunk-CF3WPAMV.js"
+    "chunk-TNURRTOV": {
+      "file": "chunk-TNURRTOV.js"
     }
   }
 }

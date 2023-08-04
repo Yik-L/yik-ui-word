@@ -2,8 +2,8 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 21:26:00
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-03 22:01:59
- * @FilePath: /yik-ui/docs/scroll.md
+ * @LastEditTime: 2023-08-04 09:39:52
+ * @FilePath: \yik-ui-word\docs\scroll.md
  * @Description:
 -->
 <script setup>
@@ -28,7 +28,6 @@
   <br />
   <YikScroll
     :scroll="scroll"
-    :key="scroll"
     @onBottom="handleBottom"
     @onTop="handleTop"
     @onWatch="handleWatch"

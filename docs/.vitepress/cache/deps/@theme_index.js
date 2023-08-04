@@ -1,38 +1,35 @@
 import {
   useMediaQuery
-} from "./chunk-CZPYITVG.js";
+} from "./chunk-UBVZP62B.js";
 import {
   computed,
-  init_vue_runtime_esm_browser,
   ref
-} from "./chunk-YGHPH4RB.js";
-import "./chunk-CF3WPAMV.js";
+} from "./chunk-TNURRTOV.js";
 
 // node_modules/vitepress/dist/client/theme-default/index.js
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
 
 // node_modules/vitepress/dist/client/theme-default/without-fonts.js
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/vars.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/base.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/utils.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/components/custom-block.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code-group.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css";
-import "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/styles/components/vp-sponsor.css";
-import VPBadge from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
-import Layout from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/Layout.vue";
-import { default as default2 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPHomeHero.vue";
-import { default as default3 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPHomeFeatures.vue";
-import { default as default4 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPHomeSponsors.vue";
-import { default as default5 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPDocAsideSponsors.vue";
-import { default as default6 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPTeamPage.vue";
-import { default as default7 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageTitle.vue";
-import { default as default8 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageSection.vue";
-import { default as default9 } from "/Users/liuyan/Documents/Word/yik-ui/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/vars.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/base.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/utils.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/components/custom-block.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code-group.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css";
+import "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/styles/components/vp-sponsor.css";
+import VPBadge from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
+import Layout from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/Layout.vue";
+import { default as default2 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPHomeHero.vue";
+import { default as default3 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPHomeFeatures.vue";
+import { default as default4 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPHomeSponsors.vue";
+import { default as default5 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPDocAsideSponsors.vue";
+import { default as default6 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPTeamPage.vue";
+import { default as default7 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageTitle.vue";
+import { default as default8 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageSection.vue";
+import { default as default9 } from "E:/my/yik-ui-word/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
 
 // node_modules/vitepress/dist/client/theme-default/composables/sidebar.js
-init_vue_runtime_esm_browser();
 import { useRoute } from "vitepress";
 
 // node_modules/vitepress/dist/client/theme-default/support/utils.js
