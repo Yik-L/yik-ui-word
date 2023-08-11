@@ -25,6 +25,7 @@ npm i @yik_l/ui -S
 import { createApp } from "vue";
 import App from "./App.vue";
 import YikUi from "@yik_l/ui";
+import "@yik_l/ui/style.css";
 const app = createApp(App);
 app.use(YikUi);
 app.mount("#app");
