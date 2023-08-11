@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 21:26:00
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 09:39:52
+ * @LastEditTime: 2023-08-11 15:25:27
  * @FilePath: \yik-ui-word\docs\scroll.md
  * @Description:
 -->
@@ -22,12 +22,11 @@
 
 ```vue
 <template>
-  <button @click="scroll = 100">100</button>
-  <button @click="scroll = 200">200</button>
-  <br />
-  <br />
+  <button @click="scrollRef.setScroll(100)">100</button>
+  <button @click="scrollRef.setScroll(200)">200</button>
   <YikScroll
-    :scroll="scroll"
+    ref="scrollRef"
+    :loading="loading"
     @onBottom="handleBottom"
     @onTop="handleTop"
     @onWatch="handleWatch"
@@ -36,10 +35,6 @@
     <p class="p" v-for="item in 5">
       {{ item }}
     </p>
-    <template #loading>
-      <span v-show="loading == 1">加载中...</span>
-      <span v-show="loading == 2">没有更多了</span>
-    </template>
   </YikScroll>
   <br />
   <div ref="content" class="console">
@@ -47,21 +42,21 @@
   </div>
 </template>
 <script setup>
-import YikUi from "@yik_l/ui";
-const { YikScroll } = YikUi;
+import YikUi from "./yik-ui.js";
 import { ref, nextTick, reactive, toRefs } from "vue";
+const { YikScroll } = YikUi;
+const scrollRef = ref(null);
 const content = ref(null);
 const state = reactive({
   list: [],
-  loading: 0,
-  scroll: 0,
+  loading: true,
+  scroll: 10,
 });
 const { list, loading, scroll } = toRefs(state);
 const handleBottom = () => {
   state.list.push("bottom");
-  state.loading = 1;
   setTimeout(() => {
-    state.loading = 2;
+    state.loading = false;
   }, 3000);
   setTop();
 };
@@ -91,12 +86,13 @@ const setTop = () => {
   color: #00db12;
 }
 button {
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #1a89fa;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
-  border-radius: 10px;
-  margin-right: 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>
 ```
@@ -111,13 +107,21 @@ button {
 
 | **事件名** | **说明**       | **回调参数**     |
 | ---------- | -------------- | ---------------- |
-| onBottom   | 滚动到底部触发 | undefine         |
-| onTop      | 滚动到顶部触发 | undefine         |
+| onBottom   | 滚动到底部触发 | -                |
+| onTop      | 滚动到顶部触发 | -                |
 | onWatch    | 滚动时触发     | 示例中有返回参数 |
 
 ## 插槽
 
-| **名称名** | **说明**           |
-| ---------- | ------------------ |
-| default    | 列表内容           |
-| loading    | 插入到列表内容最后 |
+| **名称** | **说明**                   |
+| -------- | -------------------------- |
+| default  | 列表内容                   |
+| loading  | 自定义底部加载中提示       |
+| finished | 自定义加载完成后的提示文案 |
+
+## 方法
+
+| **名称**  | **说明**       | **参数**                                                                | **返回值** |
+| --------- | -------------- | ----------------------------------------------------------------------- | ---------- |
+| setScroll | 设置滚动条位置 | （scrollValue, autoLoadScroll = false）：（滚动条值，是否自动开启请求） | -          |
+| getScroll | 获取滚动条位置 | -                                                                       | Number     |

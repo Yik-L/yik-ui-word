@@ -2,15 +2,16 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 17:16:10
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 10:18:40
+ * @LastEditTime: 2023-08-11 15:17:58
  * @FilePath: \yik-ui-word\docs\comps\Scroll.vue
  * @Description: 
 -->
 <template>
-  <button @click="scroll = 100">100</button>
-  <button @click="scroll = 200">200</button>
+  <button @click="scrollRef.setScroll(100)">100</button>
+  <button @click="scrollRef.setScroll(200)">200</button>
   <YikScroll
-    :scroll="scroll"
+    ref="scrollRef"
+    :loading="loading"
     @onBottom="handleBottom"
     @onTop="handleTop"
     @onWatch="handleWatch"
@@ -19,10 +20,6 @@
     <p class="p" v-for="item in 5">
       {{ item }}
     </p>
-    <template #loading>
-      <span v-show="loading == 1">加载中...</span>
-      <span v-show="loading == 2">没有更多了</span>
-    </template>
   </YikScroll>
   <br />
   <div ref="content" class="console">
@@ -30,21 +27,22 @@
   </div>
 </template>
 <script setup>
+import "./style.css";
 import YikUi from "./yik-ui.js";
 import { ref, nextTick, reactive, toRefs } from "vue";
 const { YikScroll } = YikUi;
+const scrollRef = ref(null);
 const content = ref(null);
 const state = reactive({
   list: [],
-  loading: 0,
+  loading: true,
   scroll: 10,
 });
 const { list, loading, scroll } = toRefs(state);
 const handleBottom = () => {
   state.list.push("bottom");
-  state.loading = 1;
   setTimeout(() => {
-    state.loading = 2;
+    state.loading = false;
   }, 3000);
   setTop();
 };

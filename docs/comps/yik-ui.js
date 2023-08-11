@@ -1,11 +1,14 @@
 import {
-  ref,
-  watch,
-  onMounted,
   onUnmounted,
+  ref,
+  onMounted,
   openBlock,
   createElementBlock,
   renderSlot,
+  createElementVNode,
+  withDirectives,
+  createTextVNode,
+  vShow,
   getCurrentInstance,
   onBeforeUnmount,
   normalizeStyle,
@@ -14,17 +17,8 @@ import {
   shallowRef,
   useSlots,
   createCommentVNode,
+  watch,
 } from "vue";
-const YikFocus = {
-  mounted(el) {
-    if (el.nodeName == "INPUT") {
-      el.focus();
-    }
-    if (el.nodeName != "INPUT") {
-      console.error("你不应该把指令用在" + el.nodeName + "标签上");
-    }
-  },
-};
 const YikPower = {
   mounted(el, binding) {
     const modifiers = binding.modifiers;
@@ -123,46 +117,124 @@ class Scroll {
     }
   }
 }
-const _sfc_main$5 = {
+const yikLog = (message, type) => {
+  let backgroundColor = "";
+  if (type == "error") {
+    backgroundColor = "#ff362b";
+  } else {
+    backgroundColor = "#1c8eff";
+  }
+  console.log(
+    "%c" + message,
+    `padding:4px 15px;background-color: ${backgroundColor};color:#fff;border-radius: 10px;`
+  );
+};
+const useWatchDom = (callback, el, options = {}) => {
+  let mutationObserver = new MutationObserver((mutationList, observer) => {
+    if (callback) callback(mutationObserver, { mutationList, observer });
+  });
+  mutationObserver.observe(el, options);
+  onUnmounted(() => {
+    mutationObserver.disconnect();
+    mutationObserver = null;
+  });
+};
+const useWatchViewArea = (callback, el, options = {}) => {
+  let intersectionObserver = new IntersectionObserver((entries, observer) => {
+    if (callback) callback(intersectionObserver, { entries, observer });
+  }, options);
+  intersectionObserver.observe(el);
+  onUnmounted(() => {
+    intersectionObserver.disconnect();
+    intersectionObserver = null;
+  });
+};
+const index_vue_vue_type_style_index_0_scope_true_lang = "";
+const _hoisted_1$1 = { class: "loading" };
+const _hoisted_2 = /* @__PURE__ */ createElementVNode(
+  "span",
+  { class: "spin" },
+  null,
+  -1
+);
+const _hoisted_3 = { class: "loading" };
+const _sfc_main$6 = {
   __name: "index",
   props: {
-    scroll: {
-      type: Number,
-      default: 0,
+    loading: {
+      type: Boolean,
+      default: true,
     },
   },
-  emits: ["onBottom", "onTop", "onWatch"],
-  setup(__props, { emit }) {
-    const props = __props;
-    const yikUiPageRef = ref(null);
-    let scroll = null;
-    watch(
-      () => props.scroll,
-      (value) => {
-        scroll.setTop(value);
-      }
-    );
+  emits: ["onBottom", "onTop", "onWatch", "autoLoadScrollEnd"],
+  setup(__props, { expose: __expose, emit: emit2 }) {
+    let scroll = null,
+      useWatchDomCount = 0;
+    const yikUiPageRef = ref(null),
+      loadingRef = ref(null);
     onMounted(() => {
-      yikUiPageRef.value.style["overflow-y"] = "auto";
+      const el = yikUiPageRef.value;
+      el.style["overflow-y"] = "auto";
       scroll = new Scroll({
-        el: yikUiPageRef.value,
-        watchBottom: () => {
-          emit("onBottom");
-        },
+        el,
         watchTop: () => {
-          emit("onTop");
+          emit2("onTop");
         },
         watch: (data) => {
-          emit("onWatch", data);
+          emit2("onWatch", data);
         },
       });
-      scroll.setTop(props.scroll);
-      watch(
-        () => props.scroll.value,
-        (val) => {
-          scroll.setTop(val);
+      useWatchViewArea(
+        (observer, { entries }) => {
+          if (entries[0].isIntersecting) {
+            emit2("onBottom");
+          }
+        },
+        loadingRef.value,
+        {
+          root: el,
         }
       );
+    });
+    const setScroll = (scrollValue, autoLoadScroll = false) => {
+      useWatchDomCount++;
+      if (useWatchDomCount == 1) {
+        let scrollHeight = yikUiPageRef.value.scrollHeight;
+        if (scrollHeight > scrollValue) {
+          scroll.setTop(scrollValue);
+          useWatchDomCount = 0;
+        } else {
+          if (autoLoadScroll) {
+            emit2("onBottom");
+            useWatchDom(
+              (observer) => {
+                scrollHeight = yikUiPageRef.value.scrollHeight;
+                if (scrollHeight <= scrollValue) {
+                  emit2("onBottom");
+                } else {
+                  observer.disconnect();
+                  observer = null;
+                  emit2("autoLoadScrollEnd");
+                  useWatchDomCount = 0;
+                  scroll.setTop(scrollValue);
+                }
+              },
+              yikUiPageRef.value,
+              {
+                childList: true,
+                // 观察目标子节点的变化，是否有添加或者删除
+              }
+            );
+          }
+        }
+      }
+    };
+    const getScroll = () => {
+      return yikUiPageRef.value.scrollTop;
+    };
+    __expose({
+      setScroll,
+      getScroll,
     });
     onUnmounted(() => {
       if (scroll) scroll = null;
@@ -179,7 +251,33 @@ const _sfc_main$5 = {
           },
           [
             renderSlot(_ctx.$slots, "default"),
-            renderSlot(_ctx.$slots, "loading"),
+            createElementVNode(
+              "div",
+              {
+                ref_key: "loadingRef",
+                ref: loadingRef,
+              },
+              [
+                renderSlot(_ctx.$slots, "loading", {}, () => [
+                  withDirectives(
+                    createElementVNode(
+                      "p",
+                      _hoisted_1$1,
+                      [_hoisted_2, createTextVNode("加载中... ")],
+                      512
+                    ),
+                    [[vShow, __props.loading]]
+                  ),
+                ]),
+              ],
+              512
+            ),
+            renderSlot(_ctx.$slots, "finished", {}, () => [
+              withDirectives(
+                createElementVNode("p", _hoisted_3, "没有更多了", 512),
+                [[vShow, !__props.loading]]
+              ),
+            ]),
           ],
           512
         )
@@ -187,7 +285,7 @@ const _sfc_main$5 = {
     };
   },
 };
-const _sfc_main$4 = {
+const _sfc_main$5 = {
   __name: "index",
   props: {
     width: {
@@ -204,7 +302,7 @@ const _sfc_main$4 = {
     },
   },
   setup(__props) {
-    const props = __props;
+    const props2 = __props;
     const maxView = ref(null);
     let timeout = null;
     const that = getCurrentInstance();
@@ -213,7 +311,7 @@ const _sfc_main$4 = {
       let view = maxView.value,
         viewWidth = parseInt(view.style.width),
         viewHeight = parseInt(view.style.height);
-      if (props.isCover) {
+      if (props2.isCover) {
         parentNode2.style.width = window.innerWidth + "px";
         parentNode2.style.height = window.innerHeight + "px";
         parentNode2.style.display = "flex";
@@ -417,7 +515,7 @@ class Sign {
   }
 }
 const _hoisted_1 = ["width", "height"];
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   __name: "index",
   props: {
     width: {
@@ -445,14 +543,14 @@ const _sfc_main$3 = {
     },
   },
   setup(__props, { expose: __expose }) {
-    const props = __props;
+    const props2 = __props;
     const yikSignRef = ref(null);
     let lineList = [];
     let sign = null;
     let stop = null;
     onMounted(() => {
       stop = watchEffect(() => {
-        if (props.lineWidth && props.color && props.bg) {
+        if (props2.lineWidth && props2.color && props2.bg) {
           nextTick(() => {
             createSign();
           });
@@ -466,16 +564,16 @@ const _sfc_main$3 = {
       }
       sign = new Sign({
         el: yikSignRef.value,
-        color: props.color,
-        lineWidth: props.lineWidth,
-        bg: props.bg,
+        color: props2.color,
+        lineWidth: props2.lineWidth,
+        bg: props2.bg,
         watch: (data) => {
           lineList = [...data];
         },
       });
-      if (props.value) {
-        lineList = [...props.value];
-        sign.setEchoArr(props.value);
+      if (props2.value) {
+        lineList = [...props2.value];
+        sign.setEchoArr(props2.value);
       }
     };
     onUnmounted(() => {
@@ -513,7 +611,7 @@ const _sfc_main$3 = {
     };
   },
 };
-const _sfc_main$2 = {
+const _sfc_main$3 = {
   __name: "index",
   props: {
     isHideSlot: {
@@ -522,10 +620,10 @@ const _sfc_main$2 = {
     },
   },
   emits: ["onOpen", "onClose"],
-  setup(__props, { emit }) {
-    const props = __props;
+  setup(__props, { emit: emit2 }) {
+    const props2 = __props;
     const showSlot = shallowRef(true);
-    const slots = useSlots();
+    const slots2 = useSlots();
     const isPhone = () => {
       const mobileFlags = [
         /AppleWebKit.*Mobile.*/,
@@ -553,7 +651,7 @@ const _sfc_main$2 = {
       };
     };
     const isSlotsHidden = (flag) => {
-      if (slots.default && props.isHideSlot) {
+      if (slots2.default && props2.isHideSlot) {
         showSlot.value = flag;
       }
     };
@@ -561,21 +659,21 @@ const _sfc_main$2 = {
       const innerHeight = window.innerHeight;
       if (isPhone().message == "/iPhone/") {
         window.addEventListener("focusin", () => {
-          emit("onOpen");
+          emit2("open");
           isSlotsHidden(false);
         });
         window.addEventListener("focusout", () => {
-          emit("onClose");
+          emit2("close");
           isSlotsHidden(true);
         });
       } else {
         window.addEventListener("resize", () => {
           const newInnerHeight = window.innerHeight;
           if (innerHeight > newInnerHeight) {
-            emit("onOpen");
+            emit2("open");
             isSlotsHidden(false);
           } else {
-            emit("onClose");
+            emit2("close");
             isSlotsHidden(true);
           }
         });
@@ -591,7 +689,7 @@ const _sfc_main$2 = {
     };
   },
 };
-const _sfc_main$1 = {
+const _sfc_main$2 = {
   __name: "index",
   props: {
     speed: {
@@ -604,7 +702,7 @@ const _sfc_main$1 = {
     },
   },
   setup(__props) {
-    const props = __props;
+    const props2 = __props;
     const yikMarqueeRef = ref(null);
     const value = shallowRef(0);
     const isHovered = shallowRef(false);
@@ -614,11 +712,11 @@ const _sfc_main$1 = {
       nextTick(() => {
         const yikMarquee = yikMarqueeRef.value;
         yikMarqueeRef.value.style.overflow = "hidden";
-        if (props.direction == "Y") {
+        if (props2.direction == "Y") {
           boxHight = yikMarquee.children[0].clientHeight;
           startY();
         }
-        if (props.direction == "X") {
+        if (props2.direction == "X") {
           yikMarquee.style.display = "flex";
           for (let index2 = 0; index2 < yikMarquee.children.length; index2++) {
             const element = yikMarquee.children[index2];
@@ -635,7 +733,7 @@ const _sfc_main$1 = {
       if (boxWidth <= _value) {
         value.value = 0;
       } else {
-        value.value += props.speed;
+        value.value += props2.speed;
       }
       if (!isHovered.value)
         window.requestAnimationFrame(() => {
@@ -648,7 +746,7 @@ const _sfc_main$1 = {
       if (boxHight <= _value) {
         value.value = 0;
       } else {
-        value.value += props.speed;
+        value.value += props2.speed;
       }
       if (!isHovered.value)
         window.requestAnimationFrame(() => {
@@ -1369,7 +1467,7 @@ class ViewImage {
     }, 3e3);
   }
 }
-const _sfc_main = {
+const _sfc_main$1 = {
   __name: "index",
   props: {
     show: {
@@ -1398,26 +1496,26 @@ const _sfc_main = {
     },
   },
   emits: ["update:show", "closed"],
-  setup(__props, { emit }) {
-    const props = __props;
+  setup(__props, { emit: emit2 }) {
+    const props2 = __props;
     let viewImage = null;
     watch(
-      () => props.show,
+      () => props2.show,
       (val) => {
         if (val)
           nextTick(() => {
             viewImage = new ViewImage({
-              isClickMask: props.isClickMask,
-              isAutoSize: props.isAutoSize,
-              pct: props.pct / 100,
+              isClickMask: props2.isClickMask,
+              isAutoSize: props2.isAutoSize,
+              pct: props2.pct / 100,
               watchClose: () => {
-                emit("update:show");
-                emit("closed");
+                emit2("update:show");
+                emit2("closed");
                 if (viewImage._el) viewImage._el.remove();
                 viewImage = null;
               },
             });
-            viewImage.setImg(props.imgs, props.index);
+            viewImage.setImg(props2.imgs, props2.index);
           });
       },
       {
@@ -1430,49 +1528,134 @@ const _sfc_main = {
     return () => {};
   },
 };
-const yikLog = (message, type) => {
-  let backgroundColor = "";
-  if (type == "error") {
-    backgroundColor = "#ff362b";
-  } else {
-    backgroundColor = "#1c8eff";
-  }
-  console.log(
-    "%c" + message,
-    `padding:4px 15px;background-color: ${backgroundColor};color:#fff;border-radius: 10px;`
-  );
+const _sfc_main = {
+  setup(props, { slots, attrs, emit }) {
+    ref(0);
+    let str = attrs.strHtml;
+    const html = document.createElement("div");
+    html.innerHTML = str;
+    let array = [],
+      text = "";
+    const strToObj_style = (dom, style) => {
+      if (dom.getAttribute) {
+        if (dom.getAttribute("style")) {
+          const array2 = dom.getAttribute("style").split(";");
+          array2.forEach((item) => {
+            const styleArray = item.split(":");
+            style[styleArray[0]] = styleArray[1];
+          });
+        }
+      }
+    };
+    const strToObj_class = (dom, classArray) => {
+      if (dom.getAttribute) {
+        if (dom.getAttribute("class")) {
+          dom
+            .getAttribute("class")
+            .split(" ")
+            .forEach((item) => {
+              classArray.push(item);
+            });
+        }
+      }
+    };
+    const strToObj_attr = (dom, attrs2) => {
+      let attrsRule = ["id", "title", "src", "href"];
+      if (dom.getAttribute) {
+        attrsRule.forEach((rule, index2) => {
+          if (dom.getAttribute(rule)) {
+            attrs2[attrsRule[index2]] = dom.getAttribute(rule);
+          }
+        });
+      }
+    };
+    const recurveHtml = (element, array2) => {
+      element.forEach((dom) => {
+        const h_array = [];
+        let style = {};
+        let attrs2 = {};
+        let classArray = [];
+        let text2 = "";
+        let nodeName = "";
+        if (dom.nodeName == "#text") {
+          nodeName = "text";
+          text2 = dom.data;
+        } else {
+          nodeName = dom.nodeName;
+        }
+        strToObj_style(dom, style);
+        strToObj_class(dom, classArray);
+        strToObj_attr(dom, attrs2);
+        array2.push({
+          h: {
+            start:
+              'h("' +
+              nodeName +
+              '", {style:' +
+              JSON.stringify(style) +
+              ",class: " +
+              JSON.stringify(classArray) +
+              "},[",
+            h_array: text2 ? text2 : h_array,
+            end: "])",
+          },
+        });
+        if (dom.childNodes) recurveHtml(dom.childNodes, h_array);
+      });
+    };
+    recurveHtml(html.childNodes, array);
+    const recurveVNode = (list) => {
+      let str2 = "";
+      list.forEach((item, index2) => {
+        let str_temp = "";
+        if (Array.isArray(item.h.h_array)) {
+          str_temp = recurveVNode(item.h.h_array);
+        } else {
+          str_temp = item.h.h_array;
+        }
+        str2 +=
+          item.h.start +
+          str_temp +
+          item.h.end +
+          `${list.length - 1 == index2 ? "" : ","}`;
+      });
+      return str2;
+    };
+    text = recurveVNode(array);
+    return () => eval(`[${text}]`);
+  },
 };
 let components = [
   {
     name: "YikScroll",
-    component: _sfc_main$5,
+    component: _sfc_main$6,
   },
   {
     name: "YikMaxView",
-    component: _sfc_main$4,
+    component: _sfc_main$5,
   },
   {
     name: "YikSign",
-    component: _sfc_main$3,
+    component: _sfc_main$4,
   },
   {
     name: "YikIsKeyboard",
-    component: _sfc_main$2,
+    component: _sfc_main$3,
   },
   {
     name: "YikMarquee",
-    component: _sfc_main$1,
+    component: _sfc_main$2,
   },
   {
     name: "YikViewImage",
+    component: _sfc_main$1,
+  },
+  {
+    name: "YikSupporterStrHtml",
     component: _sfc_main,
   },
 ];
 let directives = [
-  {
-    name: "YikFocus",
-    directive: YikFocus,
-  },
   {
     name: "YikPower",
     directive: YikPower,
@@ -1497,12 +1680,12 @@ const install = (app) => {
 };
 const index = {
   install,
-  YikScroll: _sfc_main$5,
-  YikMaxView: _sfc_main$4,
-  YikSign: _sfc_main$3,
-  YikFocus,
-  YikMarquee: _sfc_main$1,
-  YikIsKeyboard: _sfc_main$2,
-  YikViewImage: _sfc_main,
+  YikScroll: _sfc_main$6,
+  YikMaxView: _sfc_main$5,
+  YikSign: _sfc_main$4,
+  YikMarquee: _sfc_main$2,
+  YikIsKeyboard: _sfc_main$3,
+  YikViewImage: _sfc_main$1,
+  YikSupporterStrHtml: _sfc_main,
 };
 export { index as default };

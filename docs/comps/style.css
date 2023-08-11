@@ -1,0 +1,31 @@
+.yik-ui-page .loading {
+  all: unset;
+  justify-content: center;
+  color: #969799;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 30px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.yik-ui-page .loading .spin {
+  display: inline-flex;
+  content: " ";
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #969799;
+  width: 10px;
+  height: 10px;
+  animation: spin 2s linear infinite;
+  margin-right: 5px;
+}
