@@ -18,6 +18,7 @@ import {
   useSlots,
   createCommentVNode,
   watch,
+  useCssVars,
 } from "vue";
 const YikPower = {
   mounted(el, binding) {
@@ -149,8 +150,8 @@ const useWatchViewArea = (callback, el, options = {}) => {
     intersectionObserver = null;
   });
 };
-const index_vue_vue_type_style_index_0_scope_true_lang = "";
-const _hoisted_1$1 = { class: "loading" };
+const index_vue_vue_type_style_index_0_scope_true_lang$1 = "";
+const _hoisted_1$2 = { class: "loading" };
 const _hoisted_2 = /* @__PURE__ */ createElementVNode(
   "span",
   { class: "spin" },
@@ -158,7 +159,7 @@ const _hoisted_2 = /* @__PURE__ */ createElementVNode(
   -1
 );
 const _hoisted_3 = { class: "loading" };
-const _sfc_main$6 = {
+const _sfc_main$7 = {
   __name: "index",
   props: {
     loading: {
@@ -262,7 +263,7 @@ const _sfc_main$6 = {
                   withDirectives(
                     createElementVNode(
                       "p",
-                      _hoisted_1$1,
+                      _hoisted_1$2,
                       [_hoisted_2, createTextVNode("加载中... ")],
                       512
                     ),
@@ -285,7 +286,7 @@ const _sfc_main$6 = {
     };
   },
 };
-const _sfc_main$5 = {
+const _sfc_main$6 = {
   __name: "index",
   props: {
     width: {
@@ -514,8 +515,8 @@ class Sign {
     };
   }
 }
-const _hoisted_1 = ["width", "height"];
-const _sfc_main$4 = {
+const _hoisted_1$1 = ["width", "height"];
+const _sfc_main$5 = {
   __name: "index",
   props: {
     width: {
@@ -605,13 +606,13 @@ const _sfc_main$4 = {
           },
           null,
           8,
-          _hoisted_1
+          _hoisted_1$1
         )
       );
     };
   },
 };
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   __name: "index",
   props: {
     isHideSlot: {
@@ -689,7 +690,7 @@ const _sfc_main$3 = {
     };
   },
 };
-const _sfc_main$2 = {
+const _sfc_main$3 = {
   __name: "index",
   props: {
     speed: {
@@ -1467,7 +1468,7 @@ class ViewImage {
     }, 3e3);
   }
 }
-const _sfc_main$1 = {
+const _sfc_main$2 = {
   __name: "index",
   props: {
     show: {
@@ -1528,7 +1529,7 @@ const _sfc_main$1 = {
     return () => {};
   },
 };
-const _sfc_main = {
+const _sfc_main$1 = {
   setup(props, { slots, attrs, emit }) {
     ref(0);
     let str = attrs.strHtml;
@@ -1625,33 +1626,93 @@ const _sfc_main = {
     return () => eval(`[${text}]`);
   },
 };
+const index_vue_vue_type_style_index_0_scope_true_lang = "";
+const _hoisted_1 = { class: "yik-horizontal-screen" };
+const _sfc_main = {
+  __name: "index",
+  props: {
+    direction: {
+      type: String,
+      default: "right",
+    },
+    width: {
+      type: String,
+      default: "100vw",
+    },
+    height: {
+      type: String,
+      default: "100vh",
+    },
+  },
+  setup(__props) {
+    const props2 = __props;
+    useCssVars((_ctx) => ({
+      "1be11f78": __props.width,
+      "4673d5b5": __props.height,
+    }));
+    const yikRotateRef = ref(null);
+    onMounted(() => {
+      const el = yikRotateRef.value;
+      console.log(el);
+      switch (props2.direction) {
+        case "right":
+          el.style.transform = "rotate(90deg)";
+          break;
+        case "left":
+          el.style.transform = "rotate(-90deg)";
+          break;
+      }
+    });
+    return (_ctx, _cache) => {
+      return (
+        openBlock(),
+        createElementBlock("div", _hoisted_1, [
+          createElementVNode(
+            "div",
+            {
+              class: "yik-horizontal-screen-rotate",
+              ref_key: "yikRotateRef",
+              ref: yikRotateRef,
+            },
+            [renderSlot(_ctx.$slots, "default")],
+            512
+          ),
+        ])
+      );
+    };
+  },
+};
 let components = [
   {
     name: "YikScroll",
-    component: _sfc_main$6,
+    component: _sfc_main$7,
   },
   {
     name: "YikMaxView",
-    component: _sfc_main$5,
+    component: _sfc_main$6,
   },
   {
     name: "YikSign",
-    component: _sfc_main$4,
+    component: _sfc_main$5,
   },
   {
     name: "YikIsKeyboard",
-    component: _sfc_main$3,
+    component: _sfc_main$4,
   },
   {
     name: "YikMarquee",
-    component: _sfc_main$2,
+    component: _sfc_main$3,
   },
   {
     name: "YikViewImage",
-    component: _sfc_main$1,
+    component: _sfc_main$2,
   },
   {
     name: "YikSupporterStrHtml",
+    component: _sfc_main$1,
+  },
+  {
+    name: "YikHorizontalScreen",
     component: _sfc_main,
   },
 ];
@@ -1680,12 +1741,13 @@ const install = (app) => {
 };
 const index = {
   install,
-  YikScroll: _sfc_main$6,
-  YikMaxView: _sfc_main$5,
-  YikSign: _sfc_main$4,
-  YikMarquee: _sfc_main$2,
-  YikIsKeyboard: _sfc_main$3,
-  YikViewImage: _sfc_main$1,
-  YikSupporterStrHtml: _sfc_main,
+  YikScroll: _sfc_main$7,
+  YikMaxView: _sfc_main$6,
+  YikSign: _sfc_main$5,
+  YikMarquee: _sfc_main$3,
+  YikIsKeyboard: _sfc_main$4,
+  YikViewImage: _sfc_main$2,
+  YikSupporterStrHtml: _sfc_main$1,
+  YikHorizontalScreen: _sfc_main,
 };
 export { index as default };

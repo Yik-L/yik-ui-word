@@ -33,6 +33,7 @@ export default defineConfig({
           { text: "电子签名", link: "/sign" },
           { text: "监听键盘", link: "/keyboard" },
           { text: "图片预览", link: "/view-image" },
+          { text: "横屏", link: "/horizontal-screen" },
         ],
       },
     ],

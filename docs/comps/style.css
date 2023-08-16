@@ -29,3 +29,27 @@
   animation: spin 2s linear infinite;
   margin-right: 5px;
 }
+
+.yik-horizontal-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yik-horizontal-screen .yik-horizontal-screen-rotate {
+  flex-shrink: 0;
+  width: 100vh;
+  height: 100vw;
+}
+
+.yik-horizontal-screen {
+  width: var(--1be11f78);
+  height: var(--4673d5b5);
+}
+
+.yik-horizontal-screen .yik-horizontal-screen-rotate {
+  width: var(--4673d5b5);
+  height: var(--1be11f78);
+}
