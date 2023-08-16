@@ -2,8 +2,8 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-05 19:52:02
- * @FilePath: /yik-ui/docs/.vitepress/config.js
+ * @LastEditTime: 2023-08-16 14:21:18
+ * @FilePath: \yik-ui-word\docs\.vitepress\config.js
  * @Description:
  */
 import { defineConfig } from "vitepress";
