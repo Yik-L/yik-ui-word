@@ -1,3 +1,11 @@
+<!--
+ * @Author: 刘岩 15136056318@163.com
+ * @Date: 2023-08-16 13:58:11
+ * @LastEditors: 刘岩 15136056318@163.com
+ * @LastEditTime: 2023-08-16 17:19:08
+ * @FilePath: \yik-ui-word\docs\horizontal-screen.md
+ * @Description: 
+-->
 <script setup>
   import HorizontalScreen from './comps/HorizontalScreen.vue'
 </script>
@@ -27,5 +35,5 @@
 | **属性名** | **说明** | **类型** | **默认值**                       |
 | ---------- | -------- | -------- | -------------------------------- |
 | direction  | 方向     | string   | 默认：right， 可选：(right,left) |
-| width      | 方向     | string   | 默认：100vw                      |
-| height     | 方向     | string   | 默认：100vh                      |
+| width      | 宽度     | string   | 默认：100vw                      |
+| height     | 高度     | string   | 默认：100vh                      |
