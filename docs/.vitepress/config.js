@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 17:20:22
+ * @LastEditTime: 2023-08-16 17:21:44
  * @FilePath: \yik-ui-word\docs\.vitepress\config.js
  * @Description:
  */
@@ -43,7 +43,7 @@ export default defineConfig({
         items: [{ text: "快速开始", link: "/yik-cli" }],
       },
       {
-        text: "useHooks",
+        text: "组合式 API",
         items: [
           { text: "监听dom变化", link: "/useWatchDom_" },
           { text: "监听dom可视区域内", link: "/useWatchViewArea_" },
