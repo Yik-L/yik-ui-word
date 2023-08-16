@@ -2,12 +2,12 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 09:43:07
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 13:45:40
+ * @LastEditTime: 2023-08-16 16:06:32
  * @FilePath: \yik-ui-word\docs\start.md
  * @Description:
 -->
 
-# 快速开始
+# 快速开始 <Badge type="tip" text="^1.1.0" />
 
 ## 安装
 
