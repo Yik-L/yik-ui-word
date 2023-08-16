@@ -27,7 +27,7 @@ const { show, imgs } = toRefs(state);
 <style lang="less" scoped>
 button {
   padding: 5px 10px;
-  background-color: #1a89fa;
+  background-color: #10b981;
   font-size: 14px;
   color: #fff;
   border-radius: 5px;

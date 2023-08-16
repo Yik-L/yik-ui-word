@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-04 09:36:55
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 16:26:44
+ * @LastEditTime: 2023-08-16 16:27:13
  * @FilePath: \yik-ui-word\docs\comps\Sign.vue
  * @Description: 
 -->
@@ -30,9 +30,9 @@
     :color="color"
     :lineWidth="lineWidth"
     :bg="bg"
-    style="border: 1px solid rgb(14, 190, 234)"
+    style="border: 1px solid rgb(16, 185, 129)"
   ></YikSign>
-  <img v-if="src" style="border: 1px solid rgb(14, 190, 234)" :src="src" />
+  <img v-if="src" style="border: 1px solid rgb(16, 185, 129)" :src="src" />
 </template>
 <script setup>
 import YikUi from "./yik-ui.js";
@@ -59,7 +59,7 @@ const handleClear = () => {
 <style lang="less" scoped>
 button {
   padding: 5px 10px;
-  background-color: #1a89fa;
+  background-color: #10b981;
   font-size: 14px;
   color: #fff;
   border-radius: 5px;

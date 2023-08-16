@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 17:16:10
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-11 15:17:58
+ * @LastEditTime: 2023-08-16 16:26:50
  * @FilePath: \yik-ui-word\docs\comps\Scroll.vue
  * @Description: 
 -->
@@ -15,7 +15,7 @@
     @onBottom="handleBottom"
     @onTop="handleTop"
     @onWatch="handleWatch"
-    style="height: 100px; border: 1px solid rgb(14, 190, 234)"
+    style="height: 100px; border: 1px solid rgb(16, 185, 129)"
   >
     <p class="p" v-for="item in 5">
       {{ item }}
@@ -73,7 +73,7 @@ const setTop = () => {
 }
 button {
   padding: 5px 10px;
-  background-color: #1a89fa;
+  background-color: #10b981;
   font-size: 14px;
   color: #fff;
   border-radius: 5px;

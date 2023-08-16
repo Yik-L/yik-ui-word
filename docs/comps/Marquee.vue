@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-04 13:51:35
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-04 13:51:41
+ * @LastEditTime: 2023-08-16 16:26:40
  * @FilePath: \yik-ui-word\docs\comps\Marquee.vue
  * @Description: 
 -->
@@ -10,7 +10,7 @@
   <div>
     <YikMarquee
       direction="Y"
-      style="height: 100px; border: 1px solid rgb(14, 190, 234)"
+      style="height: 100px; border: 1px solid rgb(16, 185, 129)"
     >
       <div>
         <p v-for="item in 20">{{ item }}</p>
@@ -20,7 +20,7 @@
     <YikMarquee
       :speed="1"
       direction="X"
-      style="border: 1px solid rgb(14, 190, 234)"
+      style="border: 1px solid rgb(16, 185, 129)"
     >
       <div>
         <p>
