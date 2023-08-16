@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 15:24:04
+ * @LastEditTime: 2023-08-16 17:20:22
  * @FilePath: \yik-ui-word\docs\.vitepress\config.js
  * @Description:
  */
@@ -19,7 +19,7 @@ export default defineConfig({
       { text: "首页", link: "/" },
       { text: "组件", link: "/start" },
       { text: "脚手架", link: "/yik-cli" },
-      { text: "useHooks", link: "/useWatchDom_" },
+      { text: "组合式 API", link: "/useWatchDom_" },
     ],
     search: {
       provider: "local",
