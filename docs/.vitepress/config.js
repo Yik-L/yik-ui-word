@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 14:21:18
+ * @LastEditTime: 2023-08-16 15:24:04
  * @FilePath: \yik-ui-word\docs\.vitepress\config.js
  * @Description:
  */
@@ -18,6 +18,7 @@ export default defineConfig({
     nav: [
       { text: "首页", link: "/" },
       { text: "组件", link: "/start" },
+      { text: "脚手架", link: "/yik-cli" },
     ],
     search: {
       provider: "local",
@@ -35,6 +36,10 @@ export default defineConfig({
           { text: "图片预览", link: "/view-image" },
           { text: "横屏", link: "/horizontal-screen" },
         ],
+      },
+      {
+        text: "yik-cli",
+        items: [{ text: "快速开始", link: "/yik-cli" }],
       },
     ],
     socialLinks: [
