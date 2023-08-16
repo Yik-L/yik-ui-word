@@ -1,6 +1,6 @@
 # yik-cli
 
-脚手架模板
+**_脚手架模板_**
 
 ```sh
 npm i yik-cli -g
@@ -8,9 +8,9 @@ npm i yik-cli -g
 
 ## 用法
 
-安装好以后,直接打开管理员终端,初始化工程
+**_安装好以后,直接打开管理员终端,初始化工程_**
 
-yik init 模板的名称 文件夹名称
+**yik init 模板的名称 文件夹名称**
 
 ```sh
 C:\Users\admin> yik init vue3-vite-pc-h5 wjm
@@ -18,7 +18,7 @@ C:\Users\admin> yik init vue3-vite-pc-h5 wjm
 
 ```
 
-yik 查看帮助
+**yik 查看帮助**
 
 ```sh
 C:\Users\admin> yik
@@ -31,7 +31,7 @@ Commands:
   help [command]  display help for command
 ```
 
-yik list 查看所有模板
+**yik list 查看所有模板**
 
 ```sh
 C:\Users\admin> yik list
