@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 09:43:07
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 16:06:32
+ * @LastEditTime: 2023-08-16 17:09:23
  * @FilePath: \yik-ui-word\docs\start.md
  * @Description:
 -->
@@ -19,16 +19,29 @@ npm i @yik_l/ui -S
 
 ### 完整引入
 
-不用在乎依赖包的大小，没有多少 KB。 大胆引入 😂
+_不用在乎依赖包的大小，没有多少 KB。 大胆引入 😂_
 
 ```javascript
 import { createApp } from "vue";
 import App from "./App.vue";
-import YikUi from "@yik_l/ui";
+import { YikUi } from "@yik_l/ui";
 import "@yik_l/ui/style.css";
 const app = createApp(App);
 app.use(YikUi);
 app.mount("#app");
+```
+
+### 按需导入
+
+_注意：如果时按需导入，在结尾一定要带下划线_
+
+```vue
+<template>
+  <YikHorizontalScreen_></YikHorizontalScreen_>
+</template>
+<script setup>
+import { YikHorizontalScreen_ } from "@yik_l/ui";
+</script>
 ```
 
 ## 开始使用

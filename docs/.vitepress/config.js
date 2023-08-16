@@ -19,6 +19,7 @@ export default defineConfig({
       { text: "首页", link: "/" },
       { text: "组件", link: "/start" },
       { text: "脚手架", link: "/yik-cli" },
+      { text: "useHooks", link: "/useWatchDom_" },
     ],
     search: {
       provider: "local",
@@ -40,6 +41,13 @@ export default defineConfig({
       {
         text: "yik-cli",
         items: [{ text: "快速开始", link: "/yik-cli" }],
+      },
+      {
+        text: "useHooks",
+        items: [
+          { text: "监听dom变化", link: "/useWatchDom_" },
+          { text: "监听dom可视区域内", link: "/useWatchViewArea_" },
+        ],
       },
     ],
     socialLinks: [
