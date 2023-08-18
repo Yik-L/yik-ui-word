@@ -47,6 +47,7 @@ export default defineConfig({
         items: [
           { text: "监听dom变化", link: "/useWatchDom_" },
           { text: "监听dom可视区域内", link: "/useWatchViewArea_" },
+          { text: "全局总线", link: "/useMitt_" },
         ],
       },
     ],
