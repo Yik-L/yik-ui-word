@@ -42,9 +42,7 @@
   </div>
 </template>
 <script setup>
-import YikUi from "./yik-ui.js";
 import { ref, nextTick, reactive, toRefs } from "vue";
-const { YikScroll } = YikUi;
 const scrollRef = ref(null);
 const content = ref(null);
 const state = reactive({

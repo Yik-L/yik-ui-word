@@ -25,7 +25,6 @@
   <img v-if="src" style="border: 1px solid rgb(14, 190, 234)" :src="src" />
 </template>
 <script setup>
-import { YikSign } from "@yik_l/ui";
 import { reactive, toRefs, ref } from "vue";
 const yikSignRef = ref(null);
 const state = reactive({

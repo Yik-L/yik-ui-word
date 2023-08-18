@@ -26,10 +26,7 @@
   <YikViewImage v-model:show="show" :imgs="imgs" :index="1"></YikViewImage>
 </template>
 <script setup>
-import YikUi from "./yik-ui.js";
 import { reactive, toRefs } from "vue";
-const { YikViewImage } = YikUi;
-console.log(YikViewImage);
 const state = reactive({
   show: false,
   imgs: [

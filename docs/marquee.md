@@ -49,8 +49,6 @@
   </div>
 </template>
 <script setup>
-import YikUi from "@yik_l/ui";
-const { YikMarquee } = YikUi;
 </script>
 ```
 
