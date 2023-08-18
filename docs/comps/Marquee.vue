@@ -8,16 +8,16 @@
 -->
 <template>
   <div>
-    <YikMarquee
+    <YikMarquee_
       direction="Y"
       style="height: 100px; border: 1px solid rgb(16, 185, 129)"
     >
       <div>
         <p v-for="item in 20">{{ item }}</p>
       </div>
-    </YikMarquee>
+    </YikMarquee_>
     <br />
-    <YikMarquee
+    <YikMarquee_
       :speed="1"
       direction="X"
       style="border: 1px solid rgb(16, 185, 129)"
@@ -32,10 +32,9 @@
           带着这些问题, 我们来审视一下随机一段废话.
         </p>
       </div>
-    </YikMarquee>
+    </YikMarquee_>
   </div>
 </template>
 <script setup>
-import YikUi from "./yik-ui.js";
-const { YikMarquee } = YikUi;
+import { YikMarquee_ } from "./yik-ui.js";
 </script>

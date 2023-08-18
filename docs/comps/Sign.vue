@@ -23,7 +23,7 @@
   >
     重置
   </button>
-  <YikSign
+  <YikSign_
     ref="yikSignRef"
     :width="w"
     :height="h"
@@ -31,13 +31,12 @@
     :lineWidth="lineWidth"
     :bg="bg"
     style="border: 1px solid rgb(16, 185, 129)"
-  ></YikSign>
+  ></YikSign_>
   <img v-if="src" style="border: 1px solid rgb(16, 185, 129)" :src="src" />
 </template>
 <script setup>
-import YikUi from "./yik-ui.js";
+import { YikSign_ } from "./yik-ui.js";
 import { reactive, toRefs, ref } from "vue";
-const { YikSign } = YikUi;
 const yikSignRef = ref(null);
 const state = reactive({
   w: 520,

@@ -8,27 +8,26 @@
 -->
 <template>
   <div style="display: flex; justify-content: space-between">
-    <YikHorizontalScreen
+    <YikHorizontalScreen_
       style="border: 1px solid #10b981"
       width="260px"
       height="375px"
       direction="right"
     >
       YikHorizontalScreen
-    </YikHorizontalScreen>
-    <YikHorizontalScreen
+    </YikHorizontalScreen_>
+    <YikHorizontalScreen_
       style="border: 1px solid #10b981"
       width="260px"
       height="375px"
       direction="left"
     >
       YikHorizontalScreen
-    </YikHorizontalScreen>
+    </YikHorizontalScreen_>
   </div>
 </template>
 <script setup>
-import YikUi from "./yik-ui.js";
-const { YikHorizontalScreen } = YikUi;
+import { YikHorizontalScreen_ } from "./yik-ui.js";
 import "./style.css";
 </script>
 <style lang="less" scoped></style>

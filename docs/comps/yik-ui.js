@@ -1616,8 +1616,8 @@ const install = (o) => {
   YikUi = {
     install,
   },
-  YikMaxView_ = _sfc_main$7,
-  YikScroll_ = _sfc_main$6,
+  YikMaxView_ = _sfc_main$6,
+  YikScroll_ = _sfc_main$7,
   YikSign_ = _sfc_main$5,
   YikMarquee_ = _sfc_main$3,
   YikIsKeyboard_ = _sfc_main$4,
