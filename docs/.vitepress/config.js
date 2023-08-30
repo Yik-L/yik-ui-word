@@ -2,8 +2,8 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 17:21:44
- * @FilePath: \yik-ui-word\docs\.vitepress\config.js
+ * @LastEditTime: 2023-08-30 20:40:11
+ * @FilePath: /yik-ui-word/docs/.vitepress/config.js
  * @Description:
  */
 import { defineConfig } from "vitepress";
@@ -36,6 +36,7 @@ export default defineConfig({
           { text: "监听键盘", link: "/keyboard" },
           { text: "图片预览", link: "/view-image" },
           { text: "横屏", link: "/horizontal-screen" },
+          { text: "标签页", link: "/tabs" },
         ],
       },
       {

@@ -45,11 +45,53 @@
 }
 
 .yik-horizontal-screen {
-  width: var(--1be11f78);
-  height: var(--4673d5b5)
+  width: var(--31e43ce1);
+  height: var(--1e573528)
 }
 
 .yik-horizontal-screen .yik-horizontal-screen-rotate {
-  width: var(--4673d5b5);
-  height: var(--1be11f78)
+  width: var(--1e573528);
+  height: var(--31e43ce1)
+}
+
+.yik-tabs[data-v-21ab392e] {
+  display: flex;
+  width: fit-content;
+  position: relative
+}
+
+.yik-tab[data-v-21ab392e] {
+  flex-shrink: 0;
+  cursor: pointer
+}
+
+.yik-tabs-active[data-v-21ab392e] {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.yik-tabs-active *[data-v-21ab392e] {
+  width: 100%
+}
+
+.yik-tabs[data-v-a481da7e] {
+  display: flex;
+  width: fit-content;
+  position: relative
+}
+
+.yik-tab[data-v-a481da7e] {
+  flex-shrink: 0;
+  cursor: pointer
+}
+
+.yik-tabs-active[data-v-a481da7e] {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.yik-tabs-active *[data-v-a481da7e] {
+  width: 100%
 }
