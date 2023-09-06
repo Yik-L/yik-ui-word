@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-30 20:40:11
+ * @LastEditTime: 2023-09-06 21:15:08
  * @FilePath: /yik-ui-word/docs/.vitepress/config.js
  * @Description:
  */
@@ -50,6 +50,8 @@ export default defineConfig({
           { text: "监听dom可视区域内", link: "/useWatchViewArea_" },
           { text: "全局总线", link: "/useMitt_" },
           { text: "改变元素的宽高", link: "/useResize_" },
+          { text: "防抖", link: "/useDebounce_" },
+          { text: "节流", link: "/useThrottle_" },
         ],
       },
     ],
