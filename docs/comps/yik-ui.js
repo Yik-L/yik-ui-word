@@ -152,73 +152,55 @@ const useWatchDom = (s, e, t = {}) => {
       l = !1,
       h = null;
     const a = s.style;
-    function r(f, d) {
-      f && (a.width = f + "px"), d && (a.height = d + "px");
+    function r(d, f) {
+      d && (a.width = d + "px"), f && (a.height = f + "px");
     }
-    function c(f) {
+    function c(d) {
       const {
-          left: d,
+          left: f,
           top: u,
-          width: p,
-          height: g,
+          width: g,
+          height: p,
         } = s.getBoundingClientRect(),
-        m = f.pageX - d,
-        _ = f.pageY - u;
-      return { x: m, y: _, width: p, height: g };
+        m = d.pageX - f,
+        _ = d.pageY - u;
+      return { x: m, y: _, width: g, height: p };
     }
-    s.addEventListener("mousedown", (f) => {
-      (l = !0), i && n && l && i({ ...c(f), event: f });
+    s.addEventListener("mousedown", (d) => {
+      (l = !0), i && n && l && i({ ...c(d), event: d });
     }),
-      document.addEventListener("mouseup", (f) => {
-        o && n && l && h != null && o({ ...c(f), event: f }),
+      document.addEventListener("mouseup", (d) => {
+        o && n && l && h != null && o({ ...c(d), event: d }),
           (l = !1),
           (n = !1),
           (h = null);
       }),
-      s.addEventListener("mousemove", (f) => {
-        const { x: d, y: u, width: p, height: g } = c(f);
+      s.addEventListener("mousemove", (d) => {
+        const { x: f, y: u, width: g, height: p } = c(d);
         h == null &&
-          (p - e < d && g - e < u
+          (g - e < f && p - e < u
             ? ((a.cursor = "nw-resize"), (n = !0), l && (h = 0))
-            : p - e < d
+            : g - e < f
             ? ((a.cursor = "w-resize"), (n = !0), l && (h = 1))
-            : g - e < u
+            : p - e < u
             ? ((a.cursor = "ns-resize"), (n = !0), l && (h = 2))
             : (a.cursor = "default"));
       }),
-      document.addEventListener("mousemove", (f) => {
-        const { x: d, y: u, width: p, height: g } = c(f);
+      document.addEventListener("mousemove", (d) => {
+        const { x: f, y: u, width: g, height: p } = c(d);
         if (n && l)
-          switch ((t && t({ x: d, y: u, width: p, height: g, event: f }), h)) {
+          switch ((t && t({ x: f, y: u, width: g, height: p, event: d }), h)) {
             case 0:
-              r(d, u);
+              r(f, u);
               break;
             case 1:
-              r(d);
+              r(f);
               break;
             case 2:
               r(null, u);
               break;
           }
       });
-  },
-  useDebounce = (s, e) => {
-    let t;
-    return function (...i) {
-      clearTimeout(t),
-        (t = setTimeout(() => {
-          s.apply(this, i);
-        }, e));
-    };
-  },
-  useThrottle = (s, e) => {
-    let t;
-    return function (...i) {
-      t ||
-        (t = setTimeout(() => {
-          (t = null), s.apply(this, i);
-        }, e));
-    };
   },
   index_vue_vue_type_style_index_0_scope_true_lang$1 = "",
   _hoisted_1$4 = { class: "loading" },
@@ -257,8 +239,8 @@ const useWatchDom = (s, e, t = {}) => {
               },
             })),
             useWatchViewArea(
-              (c, { entries: f }) => {
-                f[0].isIntersecting && t("onBottom");
+              (c, { entries: d }) => {
+                d[0].isIntersecting && t("onBottom");
               },
               l.value,
               {
@@ -269,18 +251,18 @@ const useWatchDom = (s, e, t = {}) => {
         e({
           setScroll: (r, c = !1) => {
             if ((o++, o == 1)) {
-              let f = n.value.scrollHeight;
-              f > r
+              let d = n.value.scrollHeight;
+              d > r
                 ? (i.setTop(r), (o = 0))
                 : c &&
                   (t("onBottom"),
                   useWatchDom(
-                    (d) => {
-                      (f = n.value.scrollHeight),
-                        f <= r
+                    (f) => {
+                      (d = n.value.scrollHeight),
+                        d <= r
                           ? t("onBottom")
-                          : (d.disconnect(),
-                            (d = null),
+                          : (f.disconnect(),
+                            (f = null),
                             t("autoLoadScrollEnd"),
                             (o = 0),
                             i.setTop(r));
@@ -381,8 +363,8 @@ const useWatchDom = (s, e, t = {}) => {
             h.style.transform = `scale(${c})`;
           } else {
             let c = window.innerWidth / a,
-              f = window.innerHeight / r;
-            h.style.transform = `scale(${c},${f})`;
+              d = window.innerHeight / r;
+            h.style.transform = `scale(${c},${d})`;
           }
         };
       return (
@@ -748,8 +730,8 @@ const _hoisted_1$3 = ["width", "height"],
           ) {
             r.style.display = "flex";
             for (let c = 0; c < r.children.length; c++) {
-              const f = r.children[c];
-              f.style["white-space"] = "nowrap";
+              const d = r.children[c];
+              d.style["white-space"] = "nowrap";
             }
             (l = r.children[0].scrollWidth), h();
           }
@@ -781,7 +763,7 @@ const _hoisted_1$3 = ["width", "height"],
             class: "yik-marquee",
             ref_key: "yikMarqueeRef",
             ref: t,
-            onMouseenter: c[0] || (c[0] = (f) => (o.value = !0)),
+            onMouseenter: c[0] || (c[0] = (d) => (o.value = !0)),
             onMouseleave:
               c[1] ||
               (c[1] = () => {
@@ -841,22 +823,22 @@ class Drag {
       if (n.tagName == "BODY")
         (l = window.innerWidth), (h = window.innerHeight);
       else {
-        const { width: d, height: u } = n.getBoundingClientRect();
-        (l = d), (h = u);
+        const { width: f, height: u } = n.getBoundingClientRect();
+        (l = f), (h = u);
       }
       const a = o.pageX - e,
         r = o.pageY - t,
         c = h - this._el.getBoundingClientRect().height,
-        f = l - this._el.getBoundingClientRect().width;
+        d = l - this._el.getBoundingClientRect().width;
       a >= 0 &&
         r >= 0 &&
         r <= c &&
-        a <= f &&
+        a <= d &&
         this._watch({
           x: a,
           y: r,
           yMax: c,
-          xMax: f,
+          xMax: d,
         }),
         a <= 0
           ? ((this._el.style.left = "0px"),
@@ -864,21 +846,21 @@ class Drag {
             this._boundWatch("left"))
           : r <= 0
           ? ((this._el.style.top = "0px"),
-            a >= 0 && a <= f && (this._el.style.left = a + "px"),
+            a >= 0 && a <= d && (this._el.style.left = a + "px"),
             this._boundWatch("top"))
-          : a <= f
+          : a <= d
           ? ((this._el.style.top = c + "px"),
-            a >= 0 && a <= f && (this._el.style.left = a + "px"),
+            a >= 0 && a <= d && (this._el.style.left = a + "px"),
             this._boundWatch("bottom"))
           : r <= c &&
-            ((this._el.style.left = f + "px"),
+            ((this._el.style.left = d + "px"),
             r >= 0 && r <= c && (this._el.style.top = r + "px"),
             this._boundWatch("right")),
         this._isBound
           ? a >= 0 &&
             r >= 0 &&
             r <= c &&
-            a <= f &&
+            a <= d &&
             ((this._el.style.left = a + "px"), (this._el.style.top = r + "px"))
           : ((this._el.style.left = a + "px"), (this._el.style.top = r + "px"));
     };
@@ -1598,8 +1580,8 @@ const _sfc_main$4 = {
     setup(s) {
       const e = s;
       useCssVars((i) => ({
-        a2695676: s.width,
-        "10d04a08": s.height,
+        af501652: s.width,
+        "48d7ac36": s.height,
       }));
       const t = ref(null);
       return (
@@ -1632,7 +1614,7 @@ const _sfc_main$4 = {
       );
     },
   },
-  tabs_vue_vue_type_style_index_0_scoped_9fb5f7fc_lang = "",
+  tabs_vue_vue_type_style_index_0_scoped_b58f9d68_lang = "",
   _export_sfc = (s, e) => {
     const t = s.__vccOpts || s;
     for (const [i, o] of e) t[i] = o;
@@ -1693,13 +1675,13 @@ const _sfc_main$4 = {
               null,
               renderList(
                 unref(o),
-                (c, f) => (
+                (c, d) => (
                   openBlock(),
                   createBlock(
                     resolveDynamicComponent(c),
                     {
                       key: c.uuid,
-                      index: f,
+                      index: d,
                       active: s.active,
                       onOnclick: l,
                       onOnchange: h,
@@ -1751,9 +1733,9 @@ const _sfc_main$4 = {
     },
   },
   YikTabs = /* @__PURE__ */ _export_sfc(_sfc_main$1, [
-    ["__scopeId", "data-v-9fb5f7fc"],
+    ["__scopeId", "data-v-b58f9d68"],
   ]),
-  tab_vue_vue_type_style_index_0_scoped_a481da7e_lang = "",
+  tab_vue_vue_type_style_index_0_scoped_0d828ce8_lang = "",
   _sfc_main = {
     name: "YikTab",
     setup: (s, { attrs: e, emit: t, slots: i }) => {
@@ -1810,7 +1792,7 @@ function _sfc_render(s, e, t, i, o, n) {
 }
 const YikTab = /* @__PURE__ */ _export_sfc(_sfc_main, [
     ["render", _sfc_render],
-    ["__scopeId", "data-v-a481da7e"],
+    ["__scopeId", "data-v-0d828ce8"],
   ]),
   yikLog = (s, e) => {
     let t = "";
@@ -1901,9 +1883,7 @@ const install = (s) => {
   useWatchDom_ = useWatchDom,
   useWatchViewArea_ = useWatchViewArea,
   useMitt_ = useMitt,
-  useResize_ = useResize,
-  useDebounce_ = useDebounce,
-  useThrottle_ = useThrottle;
+  useResize_ = useResize;
 export {
   YikHorizontalScreen_,
   YikIsKeyboard_,
@@ -1916,10 +1896,8 @@ export {
   YikTabs_,
   YikUi,
   YikViewImage_,
-  useDebounce_,
   useMitt_,
   useResize_,
-  useThrottle_,
   useWatchDom_,
   useWatchViewArea_,
 };

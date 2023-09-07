@@ -45,53 +45,53 @@
 }
 
 .yik-horizontal-screen {
-  width: var(--31e43ce1);
-  height: var(--1e573528)
+  width: var(--af501652);
+  height: var(--48d7ac36)
 }
 
 .yik-horizontal-screen .yik-horizontal-screen-rotate {
-  width: var(--1e573528);
-  height: var(--31e43ce1)
+  width: var(--48d7ac36);
+  height: var(--af501652)
 }
 
-.yik-tabs[data-v-21ab392e] {
+.yik-tabs[data-v-b58f9d68] {
   display: flex;
   width: fit-content;
   position: relative
 }
 
-.yik-tab[data-v-21ab392e] {
+.yik-tab[data-v-b58f9d68] {
   flex-shrink: 0;
   cursor: pointer
 }
 
-.yik-tabs-active[data-v-21ab392e] {
+.yik-tabs-active[data-v-b58f9d68] {
   position: absolute;
   top: 0;
   left: 0
 }
 
-.yik-tabs-active *[data-v-21ab392e] {
+.yik-tabs-active *[data-v-b58f9d68] {
   width: 100%
 }
 
-.yik-tabs[data-v-a481da7e] {
+.yik-tabs[data-v-0d828ce8] {
   display: flex;
   width: fit-content;
   position: relative
 }
 
-.yik-tab[data-v-a481da7e] {
+.yik-tab[data-v-0d828ce8] {
   flex-shrink: 0;
   cursor: pointer
 }
 
-.yik-tabs-active[data-v-a481da7e] {
+.yik-tabs-active[data-v-0d828ce8] {
   position: absolute;
   top: 0;
   left: 0
 }
 
-.yik-tabs-active *[data-v-a481da7e] {
+.yik-tabs-active *[data-v-0d828ce8] {
   width: 100%
 }
