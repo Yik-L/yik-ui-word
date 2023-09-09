@@ -1,8 +1,16 @@
+<!--
+ * @Author: 刘岩 15136056318@163.com
+ * @Date: 2023-09-06 21:05:17
+ * @LastEditors: 刘岩 15136056318@163.com
+ * @LastEditTime: 2023-09-09 23:01:47
+ * @FilePath: /yik-ui-word/docs/useDebounce_.md
+ * @Description:
+-->
 <script setup>
   import UseDebounce from './comps/UseDebounce.vue'
 </script>
 
-# useDebounce\_
+# useDebounce
 
 **_防抖函数，始终最后一次触发_**
 
@@ -17,10 +25,10 @@
   {{ desc }}
 </template>
 <script setup>
-import { useDebounce_ } from "./yik-ui.js";
+import { useDebounce } from "@/yik_l/ui";
 import { shallowRef } from "vue";
 const desc = shallowRef("");
-const input = useDebounce_((e) => {
+const input = useDebounce((e) => {
   desc.value = e.target.value;
 }, 1000);
 </script>

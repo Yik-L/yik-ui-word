@@ -1,3 +1,69 @@
+.yik-tabs[data-v-ac812947] {
+  display: flex;
+  width: fit-content;
+  position: relative
+}
+
+.yik-tab[data-v-ac812947] {
+  flex-shrink: 0;
+  cursor: pointer
+}
+
+.yik-tabs-active[data-v-ac812947] {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.yik-tabs-active *[data-v-ac812947] {
+  width: 100%
+}
+
+.yik-tabs[data-v-24476e6d] {
+  display: flex;
+  width: fit-content;
+  position: relative
+}
+
+.yik-tab[data-v-24476e6d] {
+  flex-shrink: 0;
+  cursor: pointer
+}
+
+.yik-tabs-active[data-v-24476e6d] {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.yik-tabs-active *[data-v-24476e6d] {
+  width: 100%
+}
+
+.yik-horizontal-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.yik-horizontal-screen .yik-horizontal-screen-rotate {
+  flex-shrink: 0;
+  width: 100vh;
+  height: 100vw
+}
+
+.yik-horizontal-screen {
+  width: var(--0d4cbb88);
+  height: var(--180bab71)
+}
+
+.yik-horizontal-screen .yik-horizontal-screen-rotate {
+  width: var(--180bab71);
+  height: var(--0d4cbb88)
+}
+
 .yik-ui-page .loading {
   all: unset;
   justify-content: center;
@@ -28,70 +94,4 @@
   height: 10px;
   animation: spin 2s linear infinite;
   margin-right: 5px
-}
-
-.yik-horizontal-screen {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
-
-.yik-horizontal-screen .yik-horizontal-screen-rotate {
-  flex-shrink: 0;
-  width: 100vh;
-  height: 100vw
-}
-
-.yik-horizontal-screen {
-  width: var(--31e43ce1);
-  height: var(--1e573528)
-}
-
-.yik-horizontal-screen .yik-horizontal-screen-rotate {
-  width: var(--1e573528);
-  height: var(--31e43ce1)
-}
-
-.yik-tabs[data-v-21ab392e] {
-  display: flex;
-  width: fit-content;
-  position: relative
-}
-
-.yik-tab[data-v-21ab392e] {
-  flex-shrink: 0;
-  cursor: pointer
-}
-
-.yik-tabs-active[data-v-21ab392e] {
-  position: absolute;
-  top: 0;
-  left: 0
-}
-
-.yik-tabs-active *[data-v-21ab392e] {
-  width: 100%
-}
-
-.yik-tabs[data-v-a481da7e] {
-  display: flex;
-  width: fit-content;
-  position: relative
-}
-
-.yik-tab[data-v-a481da7e] {
-  flex-shrink: 0;
-  cursor: pointer
-}
-
-.yik-tabs-active[data-v-a481da7e] {
-  position: absolute;
-  top: 0;
-  left: 0
-}
-
-.yik-tabs-active *[data-v-a481da7e] {
-  width: 100%
 }

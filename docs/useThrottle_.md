@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-09-06 21:15:33
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-09-06 21:19:31
+ * @LastEditTime: 2023-09-09 23:02:13
  * @FilePath: /yik-ui-word/docs/useThrottle_.md
  * @Description:
 -->
@@ -10,7 +10,7 @@
   import UseThrottle from './comps/UseThrottle.vue'
 </script>
 
-# useDebounce\_
+# useDebounce
 
 **_节流函数，每隔几秒出发一次_**
 
@@ -25,10 +25,10 @@
   {{ desc }}
 </template>
 <script setup>
-import { useThrottle_ } from "./yik-ui.js";
+import { useThrottle } from "./yik-ui.js";
 import { shallowRef } from "vue";
 const desc = shallowRef("");
-const input = useThrottle_((e) => {
+const input = useThrottle((e) => {
   desc.value = e.target.value;
 }, 1000);
 </script>

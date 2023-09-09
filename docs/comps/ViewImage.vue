@@ -2,16 +2,16 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-05 19:54:14
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-18 10:10:34
- * @FilePath: \yik-ui-word\docs\comps\ViewImage.vue
+ * @LastEditTime: 2023-09-09 22:56:20
+ * @FilePath: /yik-ui-word/docs/comps/ViewImage.vue
  * @Description: 
 -->
 <template>
   <button @click="show = true">图片预览</button>
-  <YikViewImage_ v-model:show="show" :imgs="imgs" :index="1"></YikViewImage_>
+  <YikViewImage v-model:show="show" :imgs="imgs" :index="1"></YikViewImage>
 </template>
 <script setup>
-import { YikViewImage_ } from "./yik-ui.js";
+import { YikViewImage } from "./yik-ui.js";
 import { reactive, toRefs } from "vue";
 const state = reactive({
   show: false,

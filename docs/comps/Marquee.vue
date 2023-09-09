@@ -2,22 +2,22 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-04 13:51:35
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 16:26:40
- * @FilePath: \yik-ui-word\docs\comps\Marquee.vue
+ * @LastEditTime: 2023-09-09 22:55:09
+ * @FilePath: /yik-ui-word/docs/comps/Marquee.vue
  * @Description: 
 -->
 <template>
   <div>
-    <YikMarquee_
+    <YikMarquee
       direction="Y"
       style="height: 100px; border: 1px solid rgb(16, 185, 129)"
     >
       <div>
         <p v-for="item in 20">{{ item }}</p>
       </div>
-    </YikMarquee_>
+    </YikMarquee>
     <br />
-    <YikMarquee_
+    <YikMarquee
       :speed="1"
       direction="X"
       style="border: 1px solid rgb(16, 185, 129)"
@@ -32,9 +32,9 @@
           带着这些问题, 我们来审视一下随机一段废话.
         </p>
       </div>
-    </YikMarquee_>
+    </YikMarquee>
   </div>
 </template>
 <script setup>
-import { YikMarquee_ } from "./yik-ui.js";
+import { YikMarquee } from "./yik-ui.js";
 </script>

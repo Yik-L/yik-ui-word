@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-09-06 21:06:12
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-09-06 21:17:20
+ * @LastEditTime: 2023-09-09 22:55:53
  * @FilePath: /yik-ui-word/docs/comps/UseDebounce.vue
  * @Description: 
 -->
@@ -11,10 +11,10 @@
   {{ desc }}
 </template>
 <script setup>
-import { useDebounce_ } from "./yik-ui.js";
+import { useDebounce } from "./yik-ui.js";
 import { shallowRef } from "vue";
 const desc = shallowRef("");
-const input = useDebounce_((e) => {
+const input = useDebounce((e) => {
   desc.value = e.target.value;
 }, 1000);
 </script>

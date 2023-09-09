@@ -2,12 +2,12 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-16 16:59:31
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-18 10:45:14
- * @FilePath: \yik-ui-word\docs\useWatchDom_.md
+ * @LastEditTime: 2023-09-09 23:02:22
+ * @FilePath: /yik-ui-word/docs/useWatchDom_.md
  * @Description:
 -->
 
-## useWatchDom\_
+## useWatchDom
 
 **_监听 Dom 元素的变化,基于 MutationObserver 对象实现_**
 
@@ -21,7 +21,7 @@
 import { useWatchDom_ } from "@yik_l/ui";
 import { ref } from "vue";
 const domRef = ref(null);
-useWatchDom_(
+useWatchDom(
   (mutationObserver, { mutationList, observer }) => {
     console.log(mutationObserver, { mutationList, observer });
   },

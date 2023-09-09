@@ -2,8 +2,8 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-04 09:36:55
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-16 16:27:13
- * @FilePath: \yik-ui-word\docs\comps\Sign.vue
+ * @LastEditTime: 2023-09-09 22:55:32
+ * @FilePath: /yik-ui-word/docs/comps/Sign.vue
  * @Description: 
 -->
 <template>
@@ -23,7 +23,7 @@
   >
     重置
   </button>
-  <YikSign_
+  <YikSign
     ref="yikSignRef"
     :width="w"
     :height="h"
@@ -31,11 +31,11 @@
     :lineWidth="lineWidth"
     :bg="bg"
     style="border: 1px solid rgb(16, 185, 129)"
-  ></YikSign_>
+  ></YikSign>
   <img v-if="src" style="border: 1px solid rgb(16, 185, 129)" :src="src" />
 </template>
 <script setup>
-import { YikSign_ } from "./yik-ui.js";
+import { YikSign } from "./yik-ui.js";
 import { reactive, toRefs, ref } from "vue";
 const yikSignRef = ref(null);
 const state = reactive({

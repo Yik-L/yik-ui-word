@@ -2,12 +2,12 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-16 16:59:31
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-18 10:50:52
- * @FilePath: \yik-ui-word\docs\useWatchViewArea_.md
+ * @LastEditTime: 2023-09-09 23:02:30
+ * @FilePath: /yik-ui-word/docs/useWatchViewArea_.md
  * @Description:
 -->
 
-## useWatchViewArea\_
+## useWatchViewArea
 
 **_监听 Dom 是否在可视区域内,基于 IntersectionObserver 对象实现_**
 
@@ -18,10 +18,10 @@
   <div ref="domRef"></div>
 </template>
 <script setup>
-import { useWatchViewArea_ } from "@yik_l/ui";
+import { useWatchViewArea } from "@yik_l/ui";
 import { ref } from "vue";
 const domRef = ref(null);
-useWatchViewArea_(
+useWatchViewArea(
   (intersectionObserver, { entries, observer }) => {
     console.log(intersectionObserver, { entries, observer });
   },

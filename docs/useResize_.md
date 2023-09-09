@@ -2,15 +2,15 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-22 14:47:54
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-22 14:56:16
- * @FilePath: \yik-ui-word\docs\useResize_.md
+ * @LastEditTime: 2023-09-09 23:02:04
+ * @FilePath: /yik-ui-word/docs/useResize_.md
  * @Description:
 -->
 <script setup>
   import UseResize from './comps/UseResize.vue'
 </script>
 
-## useResize\_
+## useResize
 
 **_拖拽的方式改变元素的宽高_**
 
@@ -24,10 +24,10 @@
 </template>
 <script setup>
 import { onMounted, ref } from "vue";
-import { useResize_ } from "@yik_l/ui";
+import { useResize } from "@yik_l/ui";
 const divRef = ref(null);
 onMounted(() => {
-  useResize_({
+  useResize({
     el: divRef.value,
     onChange: (e) => {},
     onStart: (e) => {},

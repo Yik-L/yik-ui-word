@@ -1,3 +1,11 @@
+<!--
+ * @Author: 刘岩 15136056318@163.com
+ * @Date: 2023-08-30 20:38:15
+ * @LastEditors: 刘岩 15136056318@163.com
+ * @LastEditTime: 2023-09-09 22:56:01
+ * @FilePath: /yik-ui-word/docs/comps/UseResize.vue
+ * @Description: 
+-->
 <template>
   <br />
   <div
@@ -12,14 +20,14 @@
 </template>
 <script setup>
 import { onMounted, ref } from "vue";
-import { useResize_ } from "./yik-ui.js";
+import { useResize } from "./yik-ui.js";
 const divRef = ref(null);
 const data = ref({
   height: 200,
   width: 200,
 });
 onMounted(() => {
-  useResize_({
+  useResize({
     el: divRef.value,
     onChange: (e) => {
       data.value = e;

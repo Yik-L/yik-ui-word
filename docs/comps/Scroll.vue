@@ -9,7 +9,7 @@
 <template>
   <button @click="scrollRef.setScroll(100)">100</button>
   <button @click="scrollRef.setScroll(200)">200</button>
-  <YikScroll_
+  <YikScroll
     ref="scrollRef"
     :loading="loading"
     @onBottom="handleBottom"
@@ -20,7 +20,7 @@
     <p class="p" v-for="item in 5">
       {{ item }}
     </p>
-  </YikScroll_>
+  </YikScroll>
   <br />
   <div ref="content" class="console">
     <p v-for="(item, index) in list" :key="index">{{ item }}</p>
@@ -28,7 +28,7 @@
 </template>
 <script setup>
 import "./style.css";
-import { YikScroll_ } from "./yik-ui.js";
+import { YikScroll } from "./yik-ui.js";
 import { ref, nextTick, reactive, toRefs } from "vue";
 const scrollRef = ref(null);
 const content = ref(null);

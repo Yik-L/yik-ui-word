@@ -2,26 +2,26 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-30 20:41:37
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-30 21:21:43
+ * @LastEditTime: 2023-09-09 22:55:39
  * @FilePath: /yik-ui-word/docs/comps/Tabs.vue
  * @Description: 
 -->
 <template>
-  <YikTabs_
+  <YikTabs
     classNameActive="tabs-active"
     class="tabs"
     v-model:active="active"
     @onchange="onTabChange"
   >
-    <YikTab_ class="tab"> 测试1 </YikTab_>
-    <YikTab_ class="tab"> 测试2 </YikTab_>
-    <YikTab_ class="tab"> 测试3 </YikTab_>
-  </YikTabs_>
+    <YikTab class="tab"> 测试1 </YikTab>
+    <YikTab class="tab"> 测试2 </YikTab>
+    <YikTab class="tab"> 测试3 </YikTab>
+  </YikTabs>
   {{ active }}
 </template>
 <script setup>
 import "./style.css";
-import { YikTabs_, YikTab_ } from "./yik-ui.js";
+import { YikTabs, YikTab } from "./yik-ui.js";
 import { ref } from "vue";
 const active = ref(1);
 </script>

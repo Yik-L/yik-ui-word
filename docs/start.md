@@ -2,8 +2,8 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-03 09:43:07
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-08-18 11:15:59
- * @FilePath: \yik-ui-word\docs\start.md
+ * @LastEditTime: 2023-09-09 23:00:50
+ * @FilePath: /yik-ui-word/docs/start.md
  * @Description:
 -->
 
@@ -33,14 +33,12 @@ app.mount("#app");
 
 ### 按需导入
 
-_注意：如果时按需导入，在结尾一定要带下划线_
-
 ```vue
 <template>
-  <YikHorizontalScreen_></YikHorizontalScreen_>
+  <YikHorizontalScreen></YikHorizontalScreen>
 </template>
 <script setup>
-import { YikHorizontalScreen_ } from "@yik_l/ui";
+import { YikHorizontalScreen } from "@yik_l/ui";
 </script>
 ```
 
