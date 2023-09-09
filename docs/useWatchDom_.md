@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-08-16 16:59:31
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-09-09 23:02:22
+ * @LastEditTime: 2023-09-09 23:06:12
  * @FilePath: /yik-ui-word/docs/useWatchDom_.md
  * @Description:
 -->
@@ -18,7 +18,7 @@
   <div ref="domRef"></div>
 </template>
 <script setup>
-import { useWatchDom_ } from "@yik_l/ui";
+import { useWatchDom } from "@yik_l/ui";
 import { ref } from "vue";
 const domRef = ref(null);
 useWatchDom(
