@@ -2,7 +2,7 @@
  * @Author: 刘岩
  * @Date: 2023-08-03 09:03:52
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-09-06 21:15:08
+ * @LastEditTime: 2023-09-09 23:34:39
  * @FilePath: /yik-ui-word/docs/.vitepress/config.js
  * @Description:
  */
@@ -56,7 +56,7 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "github", link: "https://gitee.com/yan_one/vite-press" },
     ],
   },
 });
