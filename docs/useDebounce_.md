@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-09-06 21:05:17
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-09-09 23:01:47
+ * @LastEditTime: 2023-09-10 08:03:33
  * @FilePath: /yik-ui-word/docs/useDebounce_.md
  * @Description:
 -->
@@ -25,7 +25,7 @@
   {{ desc }}
 </template>
 <script setup>
-import { useDebounce } from "@/yik_l/ui";
+import { useDebounce } from "@yik_l/ui";
 import { shallowRef } from "vue";
 const desc = shallowRef("");
 const input = useDebounce((e) => {
