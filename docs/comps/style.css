@@ -1,69 +1,57 @@
-.yik-tabs[data-v-ac812947] {
+.yik-tabs[data-v-380fa830] {
   display: flex;
   width: fit-content;
-  position: relative
+  position: relative;
 }
-
-.yik-tab[data-v-ac812947] {
+.yik-tab[data-v-380fa830] {
   flex-shrink: 0;
-  cursor: pointer
+  cursor: pointer;
 }
-
-.yik-tabs-active[data-v-ac812947] {
+.yik-tabs-active[data-v-380fa830] {
   position: absolute;
   top: 0;
-  left: 0
+  left: 0;
 }
-
-.yik-tabs-active *[data-v-ac812947] {
-  width: 100%
+.yik-tabs-active *[data-v-380fa830] {
+  width: 100%;
 }
-
-.yik-tabs[data-v-24476e6d] {
+.yik-tabs[data-v-f63418c4] {
   display: flex;
   width: fit-content;
-  position: relative
+  position: relative;
 }
-
-.yik-tab[data-v-24476e6d] {
+.yik-tab[data-v-f63418c4] {
   flex-shrink: 0;
-  cursor: pointer
+  cursor: pointer;
 }
-
-.yik-tabs-active[data-v-24476e6d] {
+.yik-tabs-active[data-v-f63418c4] {
   position: absolute;
   top: 0;
-  left: 0
+  left: 0;
 }
-
-.yik-tabs-active *[data-v-24476e6d] {
-  width: 100%
+.yik-tabs-active *[data-v-f63418c4] {
+  width: 100%;
 }
-
 .yik-horizontal-screen {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
-
 .yik-horizontal-screen .yik-horizontal-screen-rotate {
   flex-shrink: 0;
   width: 100vh;
-  height: 100vw
+  height: 100vw;
 }
-
 .yik-horizontal-screen {
-  width: var(--0d4cbb88);
-  height: var(--180bab71)
+  width: var(--377eea16);
+  height: var(--ebfc4c50);
 }
-
 .yik-horizontal-screen .yik-horizontal-screen-rotate {
-  width: var(--180bab71);
-  height: var(--0d4cbb88)
+  width: var(--ebfc4c50);
+  height: var(--377eea16);
 }
-
 .yik-ui-page .loading {
   all: unset;
   justify-content: center;
@@ -71,19 +59,16 @@
   font-size: 14px;
   display: flex;
   align-items: center;
-  line-height: 30px
+  line-height: 30px;
 }
-
 @keyframes spin {
   0% {
-    transform: rotate(0)
+    transform: rotate(0);
   }
-
   to {
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
-
 .yik-ui-page .loading .spin {
   display: inline-flex;
   content: " ";
@@ -93,5 +78,5 @@
   width: 10px;
   height: 10px;
   animation: spin 2s linear infinite;
-  margin-right: 5px
+  margin-right: 5px;
 }

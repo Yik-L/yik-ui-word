@@ -2,7 +2,7 @@
  * @Author: 刘岩 15136056318@163.com
  * @Date: 2023-09-06 21:15:33
  * @LastEditors: 刘岩 15136056318@163.com
- * @LastEditTime: 2023-09-10 08:03:48
+ * @LastEditTime: 2023-09-06 21:19:31
  * @FilePath: /yik-ui-word/docs/useThrottle_.md
  * @Description:
 -->
@@ -25,10 +25,10 @@
   {{ desc }}
 </template>
 <script setup>
-import { useThrottle } from "@yik_l/ui";
+import { useThrottle_ } from "./yik-ui.js";
 import { shallowRef } from "vue";
 const desc = shallowRef("");
-const input = useThrottle((e) => {
+const input = useThrottle_((e) => {
   desc.value = e.target.value;
 }, 1000);
 </script>

@@ -1,43 +1,44 @@
 import {
-  useSlots as R,
-  reactive as V,
-  toRefs as W,
+  useSlots as W,
+  reactive as F,
+  toRefs as P,
   onMounted as _,
   openBlock as g,
   createElementBlock as m,
-  Fragment as j,
-  renderList as U,
-  unref as y,
-  createBlock as C,
-  resolveDynamicComponent as N,
-  createElementVNode as x,
-  normalizeClass as Y,
-  normalizeStyle as A,
+  Fragment as K,
+  renderList as J,
+  unref as v,
+  createBlock as Y,
+  resolveDynamicComponent as E,
+  createElementVNode as b,
+  normalizeClass as B,
+  normalizeStyle as O,
   renderSlot as p,
-  watch as z,
-  ref as b,
-  watchEffect as q,
-  nextTick as $,
-  onUnmounted as T,
-  getCurrentInstance as F,
-  onBeforeUnmount as E,
-  shallowRef as L,
-  createCommentVNode as K,
-  useCssVars as J,
-  withDirectives as B,
-  createTextVNode as G,
-  vShow as I,
+  watch as C,
+  ref as y,
+  watchEffect as G,
+  nextTick as N,
+  onUnmounted as $,
+  getCurrentInstance as Q,
+  onBeforeUnmount as X,
+  shallowRef as z,
+  createCommentVNode as Z,
+  useCssVars as tt,
+  isRef as et,
+  withDirectives as I,
+  createTextVNode as it,
+  vShow as A,
 } from "vue";
-const H = (o, t) => {
+const H = (s, t) => {
     let e = "";
     t == "error" ? (e = "#ff362b") : (e = "#1c8eff"),
       console.log(
-        "%c" + o,
+        "%c" + s,
         `padding:4px 15px;background-color: ${e};color:#fff;border-radius: 10px;`
       );
   },
-  Dt = () => {
-    const o = [
+  Ft = () => {
+    const s = [
         /AppleWebKit.*Mobile.*/,
         // 移动终端
         /\(i[^;]+;( U;)? CPU.+Mac OS X/,
@@ -50,7 +51,7 @@ const H = (o, t) => {
         // iPad
       ],
       t = navigator.userAgent;
-    for (let e of o)
+    for (let e of s)
       if (e.test(t))
         return {
           phone: !0,
@@ -60,16 +61,16 @@ const H = (o, t) => {
       phone: !1,
     };
   };
-const O = (o, t) => {
-    const e = o.__vccOpts || o;
-    for (const [i, s] of t) e[i] = s;
+const D = (s, t) => {
+    const e = s.__vccOpts || s;
+    for (const [i, o] of t) e[i] = o;
     return e;
   },
-  Q = { class: "yik-tabs" },
-  Z = {
+  st = { class: "yik-tabs" },
+  ot = {
     name: "YikTabs",
   },
-  tt = /* @__PURE__ */ Object.assign(Z, {
+  nt = /* @__PURE__ */ Object.assign(ot, {
     props: {
       // 动画时间
       duration: {
@@ -87,25 +88,25 @@ const O = (o, t) => {
       },
     },
     emits: ["update:active", "onchange"],
-    setup(o, { emit: t }) {
-      const e = R(),
-        i = V({
+    setup(s, { emit: t }) {
+      const e = W(),
+        i = F({
           comps: [],
           activeItem: {},
         }),
-        { comps: s, activeItem: n } = W(i),
+        { comps: o, activeItem: n } = P(i),
         r = (l) => {
           t("onclick", l), t("update:active", l.index);
         },
-        d = (l) => {
+        f = (l) => {
           t("onchange", l), (i.activeItem = l);
         };
       return (
         _(() => {
           let l = [];
           e.default().forEach((a) => {
-            var h;
-            switch ((h = a.type) == null ? void 0 : h.name) {
+            var c;
+            switch ((c = a.type) == null ? void 0 : c.name) {
               case "YikTab":
                 (a.uuid = Math.random().toString(16).slice(2, 8)), l.push(a);
                 break;
@@ -115,23 +116,23 @@ const O = (o, t) => {
         }),
         (l, a) => (
           g(),
-          m("div", Q, [
+          m("div", st, [
             (g(!0),
             m(
-              j,
+              K,
               null,
-              U(
-                y(s),
-                (h, c) => (
+              J(
+                v(o),
+                (c, h) => (
                   g(),
-                  C(
-                    N(h),
+                  Y(
+                    E(c),
                     {
-                      key: h.uuid,
-                      index: c,
-                      active: o.active,
+                      key: c.uuid,
+                      index: h,
+                      active: s.active,
                       onOnclick: r,
-                      onOnchange: d,
+                      onOnchange: f,
                     },
                     null,
                     40,
@@ -141,28 +142,28 @@ const O = (o, t) => {
               ),
               128
             )),
-            x(
+            b(
               "div",
               {
-                class: Y(["yik-tabs-active", o.classNameActive]),
-                style: A({
-                  transform: `translateX(${y(n).x}px)`,
-                  height: `${y(n).height}px`,
-                  width: `${y(n).width}px`,
-                  transition: `transform ${o.duration / 1e4}s`,
+                class: B(["yik-tabs-active", s.classNameActive]),
+                style: O({
+                  transform: `translateX(${v(n).x}px)`,
+                  height: `${v(n).height}px`,
+                  width: `${v(n).width}px`,
+                  transition: `transform ${s.duration / 1e4}s`,
                 }),
               },
               [
                 p(
                   l.$slots,
                   "active",
-                  { row: y(n) },
+                  { row: v(n) },
                   () => [
                     (g(),
-                    C(
-                      N(y(s)[y(n).index]),
+                    Y(
+                      E(v(o)[v(n).index]),
                       {
-                        class: Y([o.classNameActive]),
+                        class: B([s.classNameActive]),
                       },
                       null,
                       8,
@@ -179,16 +180,16 @@ const O = (o, t) => {
       );
     },
   }),
-  et = /* @__PURE__ */ O(tt, [["__scopeId", "data-v-ac812947"]]);
-const it = {
+  at = /* @__PURE__ */ D(nt, [["__scopeId", "data-v-380fa830"]]);
+const lt = {
     name: "YikTab",
-    setup: (o, { attrs: t, emit: e, slots: i }) => {
+    setup: (s, { attrs: t, emit: e, slots: i }) => {
       _(() => {
-        z(
+        C(
           () => t.active,
           (n, r) => {
             n == t.index &&
-              s(
+              o(
                 {
                   target: document.getElementById("yikTabRef" + t.index),
                 },
@@ -200,21 +201,21 @@ const it = {
           }
         );
       });
-      const s = (n, r) => {
-        const { height: d, width: l } = n.target.getBoundingClientRect(),
+      const o = (n, r) => {
+        const { height: f, width: l } = n.target.getBoundingClientRect(),
           a = n.target.offsetLeft;
         e(r, {
           index: t.index,
           x: a,
-          height: d,
+          height: f,
           width: l,
         });
       };
-      return { handleYikTab: s, index: t.index };
+      return { handleYikTab: o, index: t.index };
     },
   },
-  st = ["id"];
-function ot(o, t, e, i, s, n) {
+  rt = ["id"];
+function ct(s, t, e, i, o, n) {
   return (
     g(),
     m(
@@ -224,21 +225,21 @@ function ot(o, t, e, i, s, n) {
         onClick:
           t[0] ||
           (t[0] = (r) => {
-            o.handleYikTab(r, "onclick");
+            s.handleYikTab(r, "onclick");
           }),
-        id: "yikTabRef" + o.index,
+        id: "yikTabRef" + s.index,
       },
-      [p(o.$slots, "default", {}, void 0, !0)],
+      [p(s.$slots, "default", {}, void 0, !0)],
       8,
-      st
+      rt
     )
   );
 }
-const nt = /* @__PURE__ */ O(it, [
-  ["render", ot],
-  ["__scopeId", "data-v-24476e6d"],
+const ht = /* @__PURE__ */ D(lt, [
+  ["render", ct],
+  ["__scopeId", "data-v-f63418c4"],
 ]);
-class at {
+class ft {
   constructor({
     el: t,
     // canvas dom
@@ -246,7 +247,7 @@ class at {
     // 线条宽度
     color: i = "#0088ff",
     //线条颜色
-    bg: s,
+    bg: o,
     // 背景颜色或者背景图片
     watch: n,
   }) {
@@ -256,7 +257,7 @@ class at {
       (this.isDraw = !1),
       (this.lineWidth = e),
       (this.color = i),
-      (this.bg = s),
+      (this.bg = o),
       (this._array = []),
       this.onInit(),
       this.drawing(),
@@ -320,13 +321,13 @@ class at {
       e = this.recurveOffset(this.canvas, "offsetTop", 0);
     (this.canvas.onmousemove = (i) => {
       if (this.isDraw) {
-        const s = i.pageX - t,
+        const o = i.pageX - t,
           n = i.pageY - e;
         this._array[this._array.length - 1].push({
-          x: s,
+          x: o,
           y: n,
         }),
-          this.ctx.lineTo(s, n),
+          this.ctx.lineTo(o, n),
           (this.ctx.lineJoin = "round"),
           (this.ctx.lineCap = "round"),
           (this.ctx.lineWidth = this.lineWidth),
@@ -336,13 +337,13 @@ class at {
     }),
       (this.canvas.ontouchmove = (i) => {
         if (this.isDraw) {
-          const s = i.touches[0].pageX - this.canvas.offsetLeft,
+          const o = i.touches[0].pageX - this.canvas.offsetLeft,
             n = i.touches[0].pageY - this.canvas.offsetTop;
           this._array[this._array.length - 1].push({
-            x: s,
+            x: o,
             y: n,
           }),
-            this.ctx.lineTo(s, n),
+            this.ctx.lineTo(o, n),
             (this.ctx.lineJoin = "round"),
             (this.ctx.lineCap = "round"),
             (this.ctx.lineWidth = this.lineWidth),
@@ -383,11 +384,11 @@ class at {
       });
   }
 }
-const lt = ["width", "height"],
-  rt = {
+const dt = ["width", "height"],
+  ut = {
     name: "YikSign",
   },
-  ht = /* @__PURE__ */ Object.assign(rt, {
+  gt = /* @__PURE__ */ Object.assign(ut, {
     props: {
       width: {
         type: Number,
@@ -413,68 +414,68 @@ const lt = ["width", "height"],
         default: () => [],
       },
     },
-    setup(o, { expose: t }) {
-      const e = o,
-        i = b(null);
-      let s = [],
+    setup(s, { expose: t }) {
+      const e = s,
+        i = y(null);
+      let o = [],
         n = null,
         r = null;
       _(() => {
-        r = q(() => {
+        r = G(() => {
           e.lineWidth &&
             e.color &&
             e.bg &&
-            $(() => {
-              d();
+            N(() => {
+              f();
             });
         });
       });
-      const d = () => {
-        n && ((s = []), (n = null)),
-          (n = new at({
+      const f = () => {
+        n && ((o = []), (n = null)),
+          (n = new ft({
             el: i.value,
             color: e.color,
             lineWidth: e.lineWidth,
             bg: e.bg,
             watch: (l) => {
-              s = [...l];
+              o = [...l];
             },
           })),
-          e.value && ((s = [...e.value]), n.setEchoArr(e.value));
+          e.value && ((o = [...e.value]), n.setEchoArr(e.value));
       };
       return (
-        T(() => {
+        $(() => {
           r(), n && (n = null);
         }),
         t({
           save: () => n.save(),
           clear: () => {
-            (s = []), n.clear();
+            (o = []), n.clear();
           },
-          getLine: () => s,
+          getLine: () => o,
         }),
         (l, a) => (
           g(),
           m(
             "canvas",
             {
-              width: o.width,
-              height: o.height,
+              width: s.width,
+              height: s.height,
               ref_key: "yikSignRef",
               ref: i,
             },
             null,
             8,
-            lt
+            dt
           )
         )
       );
     },
   }),
-  ct = {
+  pt = {
     name: "YikMaxView",
   },
-  dt = /* @__PURE__ */ Object.assign(ct, {
+  mt = /* @__PURE__ */ Object.assign(pt, {
     props: {
       width: {
         type: String,
@@ -489,30 +490,30 @@ const lt = ["width", "height"],
         default: !1,
       },
     },
-    setup(o) {
-      const t = o,
-        e = b(null);
+    setup(s) {
+      const t = s,
+        e = y(null);
       let i = null;
-      const s = F(),
+      const o = Q(),
         n = () => {
-          const r = s.refs.maxView.parentNode;
-          let d = e.value,
-            l = parseInt(d.style.width),
-            a = parseInt(d.style.height);
+          const r = o.refs.maxView.parentNode;
+          let f = e.value,
+            l = parseInt(f.style.width),
+            a = parseInt(f.style.height);
           if (t.isCover) {
             (r.style.width = window.innerWidth + "px"),
               (r.style.height = window.innerHeight + "px"),
               (r.style.display = "flex"),
               (r.style.justifyContent = "center");
-            const h =
+            const c =
               window.innerWidth / window.innerHeight < l / a
                 ? window.innerWidth / l
                 : window.innerHeight / a;
-            d.style.transform = `scale(${h})`;
+            f.style.transform = `scale(${c})`;
           } else {
-            let h = window.innerWidth / l,
-              c = window.innerHeight / a;
-            d.style.transform = `scale(${h},${c})`;
+            let c = window.innerWidth / l,
+              h = window.innerHeight / a;
+            f.style.transform = `scale(${c},${h})`;
           }
         };
       return (
@@ -529,10 +530,10 @@ const lt = ["width", "height"],
                 }, 500));
             });
         }),
-        E(() => {
+        X(() => {
           window.onresize = null;
         }),
-        (r, d) => (
+        (r, f) => (
           g(),
           m(
             "div",
@@ -540,10 +541,10 @@ const lt = ["width", "height"],
               ref_key: "maxView",
               ref: e,
               class: "yik-ui-max-view",
-              style: A({
-                width: o.width,
-                height: o.height,
-                transformOrigin: (o.isCover ? "center" : "left") + " top",
+              style: O({
+                width: s.width,
+                height: s.height,
+                transformOrigin: (s.isCover ? "center" : "left") + " top",
               }),
             },
             [p(r.$slots, "default")],
@@ -553,10 +554,10 @@ const lt = ["width", "height"],
       );
     },
   }),
-  ft = {
+  _t = {
     name: "YikMarquee",
   },
-  ut = /* @__PURE__ */ Object.assign(ft, {
+  vt = /* @__PURE__ */ Object.assign(_t, {
     props: {
       speed: {
         type: Number,
@@ -567,15 +568,15 @@ const lt = ["width", "height"],
         default: "Y",
       },
     },
-    setup(o) {
-      const t = o,
-        e = b(null),
-        i = L(0),
-        s = L(!1);
+    setup(s) {
+      const t = s,
+        e = y(null),
+        i = z(0),
+        o = z(!1);
       let n = 0,
         r = 0;
       _(() => {
-        $(() => {
+        N(() => {
           const a = e.value;
           if (
             ((e.value.style.overflow = "hidden"),
@@ -583,33 +584,33 @@ const lt = ["width", "height"],
             t.direction == "X")
           ) {
             a.style.display = "flex";
-            for (let h = 0; h < a.children.length; h++) {
-              const c = a.children[h];
-              c.style["white-space"] = "nowrap";
+            for (let c = 0; c < a.children.length; c++) {
+              const h = a.children[c];
+              h.style["white-space"] = "nowrap";
             }
-            (r = a.children[0].scrollWidth), d();
+            (r = a.children[0].scrollWidth), f();
           }
         });
       });
-      const d = (a) => {
+      const f = (a) => {
           (e.value.children[0].style.transform = `translateX(-${i.value}px)`),
             (e.value.children[1].style.transform = `translateX(-${i.value}px)`),
             r <= a ? (i.value = 0) : (i.value += t.speed),
-            s.value ||
+            o.value ||
               window.requestAnimationFrame(() => {
-                d(i.value);
+                f(i.value);
               });
         },
         l = (a) => {
           (e.value.children[0].style.transform = `translateY(-${i.value}px)`),
             (e.value.children[1].style.transform = `translateY(-${i.value}px)`),
             n <= a ? (i.value = 0) : (i.value += t.speed),
-            s.value ||
+            o.value ||
               window.requestAnimationFrame(() => {
                 l(i.value);
               });
         };
-      return (a, h) => (
+      return (a, c) => (
         g(),
         m(
           "div",
@@ -617,13 +618,13 @@ const lt = ["width", "height"],
             class: "yik-marquee",
             ref_key: "yikMarqueeRef",
             ref: e,
-            onMouseenter: h[0] || (h[0] = (c) => (s.value = !0)),
+            onMouseenter: c[0] || (c[0] = (h) => (o.value = !0)),
             onMouseleave:
-              h[1] ||
-              (h[1] = () => {
-                (s.value = !1),
-                  o.direction == "Y" && l(),
-                  o.direction == "X" && d();
+              c[1] ||
+              (c[1] = () => {
+                (o.value = !1),
+                  s.direction == "Y" && l(),
+                  s.direction == "X" && f();
               }),
           },
           [p(a.$slots, "default"), p(a.$slots, "default")],
@@ -632,10 +633,10 @@ const lt = ["width", "height"],
       );
     },
   }),
-  gt = {
+  yt = {
     name: "YikIsKeyboard",
   },
-  pt = /* @__PURE__ */ Object.assign(gt, {
+  wt = /* @__PURE__ */ Object.assign(yt, {
     props: {
       isHideSlot: {
         type: Boolean,
@@ -643,10 +644,10 @@ const lt = ["width", "height"],
       },
     },
     emits: ["onOpen", "onClose"],
-    setup(o, { emit: t }) {
-      const e = o,
-        i = L(!0),
-        s = R(),
+    setup(s, { emit: t }) {
+      const e = s,
+        i = z(!0),
+        o = W(),
         n = () => {
           const l = [
               /AppleWebKit.*Mobile.*/,
@@ -661,20 +662,20 @@ const lt = ["width", "height"],
               // iPad
             ],
             a = navigator.userAgent;
-          for (let h of l)
-            if (h.test(a))
+          for (let c of l)
+            if (c.test(a))
               return {
                 phone: !0,
-                message: h,
+                message: c,
               };
           return {
             phone: !1,
           };
         },
         r = (l) => {
-          s.default && e.isHideSlot && (i.value = l);
+          o.default && e.isHideSlot && (i.value = l);
         },
-        d = () => {
+        f = () => {
           const l = window.innerHeight;
           n().message == "/iPhone/"
             ? (window.addEventListener("focusin", () => {
@@ -690,17 +691,17 @@ const lt = ["width", "height"],
         };
       return (
         _(() => {
-          d();
+          f();
         }),
-        (l, a) => (i.value ? p(l.$slots, "default", { key: 0 }) : K("", !0))
+        (l, a) => (i.value ? p(l.$slots, "default", { key: 0 }) : Z("", !0))
       );
     },
   });
-const mt = { class: "yik-horizontal-screen" },
-  _t = {
+const xt = { class: "yik-horizontal-screen" },
+  bt = {
     name: "YikHorizontalScroll",
   },
-  yt = /* @__PURE__ */ Object.assign(_t, {
+  kt = /* @__PURE__ */ Object.assign(bt, {
     props: {
       direction: {
         type: String,
@@ -715,13 +716,13 @@ const mt = { class: "yik-horizontal-screen" },
         default: "100vh",
       },
     },
-    setup(o) {
-      const t = o;
-      J((i) => ({
-        "0d4cbb88": o.width,
-        "180bab71": o.height,
+    setup(s) {
+      const t = s;
+      tt((i) => ({
+        "377eea16": s.width,
+        ebfc4c50: s.height,
       }));
-      const e = b(null);
+      const e = y(null);
       return (
         _(() => {
           const i = e.value;
@@ -734,10 +735,10 @@ const mt = { class: "yik-horizontal-screen" },
               break;
           }
         }),
-        (i, s) => (
+        (i, o) => (
           g(),
-          m("div", mt, [
-            x(
+          m("div", xt, [
+            b(
               "div",
               {
                 class: "yik-horizontal-screen-rotate",
@@ -752,7 +753,7 @@ const mt = { class: "yik-horizontal-screen" },
       );
     },
   });
-class vt {
+class Tt {
   /**
    * @description:
    * @param {*} el  dom 元素
@@ -761,11 +762,11 @@ class vt {
    * @param {*} watch  滚动时，回调 top,height,direction,el
    * @return {*}
    */
-  constructor({ el: t, watchTop: e, watchBottom: i, watch: s }) {
+  constructor({ el: t, watchTop: e, watchBottom: i, watch: o }) {
     (this._el = t),
       (this._watchTop = e),
       (this._watchBottom = i),
-      (this._watch = s),
+      (this._watch = o),
       (this._direction = ""),
       this.listening();
   }
@@ -777,16 +778,16 @@ class vt {
         ? (this._direction = "down")
         : (this._direction = "up"),
         (t = this._el.scrollTop);
-      let s = this._el.scrollHeight - this._el.clientHeight;
+      let o = this._el.scrollHeight - this._el.clientHeight;
       this._watch &&
         this._watch({
           top: this._el.scrollTop,
-          height: s,
+          height: o,
           direction: this._direction,
           el: this._el,
         }),
         this._el.scrollTop <= 0 && this._watchTop && this._watchTop(),
-        this._el.scrollTop >= s && this._watchBottom && this._watchBottom();
+        this._el.scrollTop >= o && this._watchBottom && this._watchBottom();
     });
   }
   // 设置滚动条值
@@ -795,99 +796,99 @@ class vt {
     else throw new Error("setTop 形参必须是Number类型");
   }
 }
-const wt = (o, t, e = {}) => {
-    let i = new MutationObserver((s, n) => {
-      o && o(i, { mutationList: s, observer: n });
+const St = (s, t, e = {}) => {
+    let i = new MutationObserver((o, n) => {
+      s && s(i, { mutationList: o, observer: n });
     });
     i.observe(t, e),
-      T(() => {
+      $(() => {
         i.disconnect(), (i = null);
       });
   },
-  xt = (o, t, e = {}) => {
-    let i = new IntersectionObserver((s, n) => {
-      o && o(i, { entries: s, observer: n });
+  $t = (s, t, e = {}) => {
+    let i = new IntersectionObserver((o, n) => {
+      s && s(i, { entries: o, observer: n });
     }, e);
     i.observe(t),
-      T(() => {
+      $(() => {
         i.disconnect(), (i = null);
       });
   },
-  Vt = (o, t) => {
-    switch (state[o]) {
+  Kt = (s, t) => {
+    switch (state[s]) {
       case void 0:
-        state[o] = "";
+        state[s] = "";
         break;
     }
-    const e = W(state);
+    const e = P(state);
     return (
       t &&
-        z(
-          () => state[o],
-          (i, s) => {
-            t(i, s);
+        C(
+          () => state[s],
+          (i, o) => {
+            t(i, o);
           },
           {
             deep: !0,
           }
         ),
-      e[o]
+      e[s]
     );
   },
-  jt = ({
-    el: o,
+  Jt = ({
+    el: s,
     gap: t = 20,
     onChange: e = null,
     onStart: i = null,
-    onEnd: s = null,
+    onEnd: o = null,
   }) => {
     let n = !1,
       r = !1,
-      d = null;
-    const l = o.style;
-    function a(c, f) {
-      c && (l.width = c + "px"), f && (l.height = f + "px");
+      f = null;
+    const l = s.style;
+    function a(h, d) {
+      h && (l.width = h + "px"), d && (l.height = d + "px");
     }
-    function h(c) {
+    function c(h) {
       const {
-          left: f,
+          left: d,
           top: u,
-          width: v,
-          height: w,
-        } = o.getBoundingClientRect(),
-        X = c.pageX - f,
-        D = c.pageY - u;
-      return { x: X, y: D, width: v, height: w };
+          width: w,
+          height: x,
+        } = s.getBoundingClientRect(),
+        j = h.pageX - d,
+        q = h.pageY - u;
+      return { x: j, y: q, width: w, height: x };
     }
-    o.addEventListener("mousedown", (c) => {
-      (r = !0), i && n && r && i({ ...h(c), event: c });
+    s.addEventListener("mousedown", (h) => {
+      (r = !0), i && n && r && i({ ...c(h), event: h });
     }),
-      document.addEventListener("mouseup", (c) => {
-        s && n && r && d != null && s({ ...h(c), event: c }),
+      document.addEventListener("mouseup", (h) => {
+        o && n && r && f != null && o({ ...c(h), event: h }),
           (r = !1),
           (n = !1),
-          (d = null);
+          (f = null);
       }),
-      o.addEventListener("mousemove", (c) => {
-        const { x: f, y: u, width: v, height: w } = h(c);
-        d == null &&
-          (v - t < f && w - t < u
-            ? ((l.cursor = "nw-resize"), (n = !0), r && (d = 0))
-            : v - t < f
-            ? ((l.cursor = "w-resize"), (n = !0), r && (d = 1))
-            : w - t < u
-            ? ((l.cursor = "ns-resize"), (n = !0), r && (d = 2))
+      s.addEventListener("mousemove", (h) => {
+        const { x: d, y: u, width: w, height: x } = c(h);
+        f == null &&
+          (w - t < d && x - t < u
+            ? ((l.cursor = "nw-resize"), (n = !0), r && (f = 0))
+            : w - t < d
+            ? ((l.cursor = "w-resize"), (n = !0), r && (f = 1))
+            : x - t < u
+            ? ((l.cursor = "ns-resize"), (n = !0), r && (f = 2))
             : (l.cursor = "default"));
       }),
-      document.addEventListener("mousemove", (c) => {
-        const { x: f, y: u, width: v, height: w } = h(c);
+      document.addEventListener("mousemove", (h) => {
+        const { x: d, y: u, width: w, height: x } = c(h);
         if (n && r)
-          switch ((e && e({ x: f, y: u, width: v, height: w, event: c }), d)) {
+          switch ((e && e({ x: d, y: u, width: w, height: x, event: h }), f)) {
             case 0:
-              a(f, u);
+              a(d, u);
               break;
             case 1:
-              a(f);
+              a(d);
               break;
             case 2:
               a(null, u);
@@ -895,31 +896,79 @@ const wt = (o, t, e = {}) => {
           }
       });
   },
-  Ut = (o, t) => {
+  Gt = (s, t) => {
     let e;
     return function (...i) {
       clearTimeout(e),
         (e = setTimeout(() => {
-          o.apply(this, i);
+          s.apply(this, i);
         }, t));
     };
   },
-  qt = (o, t) => {
+  Qt = (s, t) => {
     let e;
     return function (...i) {
       e ||
         (e = setTimeout(() => {
-          (e = null), o.apply(this, i);
+          (e = null), s.apply(this, i);
         }, t));
     };
   };
-const bt = { class: "loading" },
-  kt = /* @__PURE__ */ x("span", { class: "spin" }, null, -1),
-  Tt = { class: "loading" },
-  St = {
+let k = {
+    auth: {
+      type: Array,
+      message: "一维数组Array",
+    },
+  },
+  V = {};
+const Zt = (s) => {
+    if (s instanceof Object)
+      Object.keys(s).forEach((t) => {
+        var e;
+        if (k[t] && s[t] instanceof k[t].type) V = s;
+        else
+          throw (e = k[t]) != null && e.message
+            ? new Error("global:" + t + "类型错误,应该是" + k[t].message)
+            : new Error("无效的：" + t);
+      });
+    else throw new Error("global 需要传入一个对象 {}", "error");
+  },
+  T = (s) => {
+    if (s.nodeType) s.remove();
+    else throw new Error("不是dom节点，无法操作");
+  },
+  R = (s, t, e) => {
+    var i, o;
+    if (t instanceof Array) {
+      let n = 0;
+      t.forEach((r) => {
+        s.includes(r) && n++;
+      }),
+        n == 0 &&
+          ((i = e.value) != null && i.$el ? T(e.value.$el) : T(e.value));
+    } else
+      s.includes(t) ||
+        ((o = e.value) != null && o.$el ? T(e.value.$el) : T(e.value));
+  };
+function te(s, t) {
+  const e = V.auth;
+  if (et(s))
+    s.value instanceof Array
+      ? s.value.forEach((i) => {
+          const o = i[t.ref],
+            n = i[t.power];
+          o && n && R(e, n, y(o));
+        })
+      : R(e, t, s);
+  else throw new Error("您传入的不是一个ref响应式");
+}
+const Mt = { class: "loading" },
+  Lt = /* @__PURE__ */ b("span", { class: "spin" }, null, -1),
+  zt = { class: "loading" },
+  Ct = {
     name: "YikScroll",
   },
-  Mt = /* @__PURE__ */ Object.assign(St, {
+  Nt = /* @__PURE__ */ Object.assign(Ct, {
     props: {
       loading: {
         type: Boolean,
@@ -927,27 +976,27 @@ const bt = { class: "loading" },
       },
     },
     emits: ["onBottom", "onTop", "onWatch", "autoLoadScrollEnd"],
-    setup(o, { expose: t, emit: e }) {
+    setup(s, { expose: t, emit: e }) {
       let i = null,
-        s = 0;
-      const n = b(null),
-        r = b(null);
+        o = 0;
+      const n = y(null),
+        r = y(null);
       return (
         _(() => {
           const a = n.value;
           (a.style["overflow-y"] = "auto"),
-            (i = new vt({
+            (i = new Tt({
               el: a,
               watchTop: () => {
                 e("onTop");
               },
-              watch: (h) => {
-                e("onWatch", h);
+              watch: (c) => {
+                e("onWatch", c);
               },
             })),
-            xt(
-              (h, { entries: c }) => {
-                c[0].isIntersecting && e("onBottom");
+            $t(
+              (c, { entries: h }) => {
+                h[0].isIntersecting && e("onBottom");
               },
               r.value,
               {
@@ -956,22 +1005,22 @@ const bt = { class: "loading" },
             );
         }),
         t({
-          setScroll: (a, h = !1) => {
-            if ((s++, s == 1)) {
-              let c = n.value.scrollHeight;
-              c > a
-                ? (i.setTop(a), (s = 0))
-                : h &&
+          setScroll: (a, c = !1) => {
+            if ((o++, o == 1)) {
+              let h = n.value.scrollHeight;
+              h > a
+                ? (i.setTop(a), (o = 0))
+                : c &&
                   (e("onBottom"),
-                  wt(
-                    (f) => {
-                      (c = n.value.scrollHeight),
-                        c <= a
+                  St(
+                    (d) => {
+                      (h = n.value.scrollHeight),
+                        h <= a
                           ? e("onBottom")
-                          : (f.disconnect(),
-                            (f = null),
+                          : (d.disconnect(),
+                            (d = null),
                             e("autoLoadScrollEnd"),
-                            (s = 0),
+                            (o = 0),
                             i.setTop(a));
                     },
                     n.value,
@@ -984,10 +1033,10 @@ const bt = { class: "loading" },
           },
           getScroll: () => n.value.scrollTop,
         }),
-        T(() => {
+        $(() => {
           i && (i = null);
         }),
-        (a, h) => (
+        (a, c) => (
           g(),
           m(
             "div",
@@ -998,7 +1047,7 @@ const bt = { class: "loading" },
             },
             [
               p(a.$slots, "default"),
-              x(
+              b(
                 "div",
                 {
                   ref_key: "loadingRef",
@@ -1006,13 +1055,15 @@ const bt = { class: "loading" },
                 },
                 [
                   p(a.$slots, "loading", {}, () => [
-                    B(x("p", bt, [kt, G("加载中... ")], 512), [[I, o.loading]]),
+                    I(b("p", Mt, [Lt, it("加载中... ")], 512), [
+                      [A, s.loading],
+                    ]),
                   ]),
                 ],
                 512
               ),
               p(a.$slots, "finished", {}, () => [
-                B(x("p", Tt, "没有更多了", 512), [[I, !o.loading]]),
+                I(b("p", zt, "没有更多了", 512), [[A, !s.loading]]),
               ]),
             ],
             512
@@ -1021,25 +1072,25 @@ const bt = { class: "loading" },
       );
     },
   });
-function P(o) {
-  const t = document.defaultView.getComputedStyle(o);
+function U(s) {
+  const t = document.defaultView.getComputedStyle(s);
   return t["overflow-y"] == "auto" || t.overflow == "auto"
-    ? o
-    : P(o.parentNode);
+    ? s
+    : U(s.parentNode);
 }
-const Lt = {
-  mounted(o, t, e) {
-    const i = P(o.parentNode),
-      { arg: s, value: n, modifiers: r } = t,
-      { height: d } = o.parentNode.getBoundingClientRect();
+const Yt = {
+  mounted(s, t, e) {
+    const i = U(s.parentNode),
+      { arg: o, value: n, modifiers: r } = t,
+      { height: f } = s.parentNode.getBoundingClientRect();
     i.addEventListener("scroll", function () {
-      const { top: l } = o.getBoundingClientRect();
-      r.comp ? d > l && (e.ctx.props[s] = n) : d > l && (o[s || "src"] = n);
+      const { top: l } = s.getBoundingClientRect();
+      r.comp ? f > l && (e.ctx.props[o] = n) : f > l && (s[o || "src"] = n);
     });
   },
   name: "YikLazy",
 };
-class zt {
+class Et {
   /**
    * @description:
    * @param {*} isBody 是否挂在在body标签下
@@ -1051,12 +1102,12 @@ class zt {
     el: t,
     isBody: e = !1,
     watch: i = () => {},
-    boundWatch: s = () => {},
+    boundWatch: o = () => {},
     isBound: n = !0,
   }) {
     (this._el = t),
       (this._watch = i),
-      (this._boundWatch = s),
+      (this._boundWatch = o),
       (this._isBody = e),
       (this._isBound = n),
       this.initStyle(),
@@ -1076,64 +1127,64 @@ class zt {
   onEvent() {
     let t = 0,
       e = 0;
-    const i = (s) => {
-      s.stopPropagation();
+    const i = (o) => {
+      o.stopPropagation();
       const n = this.recursionParentNode(this._el.parentNode);
       let r = 0,
-        d = 0;
+        f = 0;
       if (n.tagName == "BODY")
-        (r = window.innerWidth), (d = window.innerHeight);
+        (r = window.innerWidth), (f = window.innerHeight);
       else {
-        const { width: f, height: u } = n.getBoundingClientRect();
-        (r = f), (d = u);
+        const { width: d, height: u } = n.getBoundingClientRect();
+        (r = d), (f = u);
       }
-      const l = s.pageX - t,
-        a = s.pageY - e,
-        h = d - this._el.getBoundingClientRect().height,
-        c = r - this._el.getBoundingClientRect().width;
+      const l = o.pageX - t,
+        a = o.pageY - e,
+        c = f - this._el.getBoundingClientRect().height,
+        h = r - this._el.getBoundingClientRect().width;
       l >= 0 &&
         a >= 0 &&
-        a <= h &&
-        l <= c &&
+        a <= c &&
+        l <= h &&
         this._watch({
           x: l,
           y: a,
-          yMax: h,
-          xMax: c,
+          yMax: c,
+          xMax: h,
         }),
         l <= 0
           ? ((this._el.style.left = "0px"),
-            a >= 0 && a <= h && (this._el.style.top = a + "px"),
+            a >= 0 && a <= c && (this._el.style.top = a + "px"),
             this._boundWatch("left"))
           : a <= 0
           ? ((this._el.style.top = "0px"),
-            l >= 0 && l <= c && (this._el.style.left = l + "px"),
+            l >= 0 && l <= h && (this._el.style.left = l + "px"),
             this._boundWatch("top"))
-          : l <= c
-          ? ((this._el.style.top = h + "px"),
-            l >= 0 && l <= c && (this._el.style.left = l + "px"),
+          : l <= h
+          ? ((this._el.style.top = c + "px"),
+            l >= 0 && l <= h && (this._el.style.left = l + "px"),
             this._boundWatch("bottom"))
-          : a <= h &&
-            ((this._el.style.left = c + "px"),
-            a >= 0 && a <= h && (this._el.style.top = a + "px"),
+          : a <= c &&
+            ((this._el.style.left = h + "px"),
+            a >= 0 && a <= c && (this._el.style.top = a + "px"),
             this._boundWatch("right")),
         this._isBound
           ? l >= 0 &&
             a >= 0 &&
-            a <= h &&
-            l <= c &&
+            a <= c &&
+            l <= h &&
             ((this._el.style.left = l + "px"), (this._el.style.top = a + "px"))
           : ((this._el.style.left = l + "px"), (this._el.style.top = a + "px"));
     };
-    this._el.addEventListener("mousedown", (s) => {
-      s.preventDefault(),
-        s.stopPropagation(),
-        (t = s.pageX - this._el.offsetLeft),
-        (e = s.pageY - this._el.offsetTop),
+    this._el.addEventListener("mousedown", (o) => {
+      o.preventDefault(),
+        o.stopPropagation(),
+        (t = o.pageX - this._el.offsetLeft),
+        (e = o.pageY - this._el.offsetTop),
         document.addEventListener("mousemove", i);
     }),
-      this._el.addEventListener("mouseup", (s) => {
-        s.stopPropagation(), document.removeEventListener("mousemove", i);
+      this._el.addEventListener("mouseup", (o) => {
+        o.stopPropagation(), document.removeEventListener("mousemove", i);
       });
   }
   // 一直向上父元素查找，一直知道position ：relative style
@@ -1143,32 +1194,32 @@ class zt {
       : t;
   }
 }
-const $t =
+const Bt =
     '<svg t="1680920604134" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3391" width="32" height="32"><path d="M570 510.8l254.9-255.1c16.4-16.5 16.4-43 0-59.5s-43-16.5-59.5 0L510.5 451.3 255.8 196.2c-16.4-16.5-43-16.5-59.5 0-16.4 16.5-16.4 43 0 59.5l254.9 255.1-254.9 255c-16.4 16.5-16.4 43 0 59.5 8.1 8.2 18.9 12.4 29.7 12.4s21.5-4.1 29.7-12.4l254.7-255 254.8 255c8.1 8.2 19 12.4 29.7 12.4 10.8 0 21.5-4.1 29.6-12.4 16.4-16.5 16.4-43 0-59.5L570 510.8z m0 0" p-id="3392" fill="#ffffff"></path></svg>',
-  Ct =
-    '<svg t="1680879453428" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3782" width="32" height="32"><path d="M358.997333 512l396.544-396.458667a42.666667 42.666667 0 1 0-60.416-60.416l-426.666666 426.666667a42.666667 42.666667 0 0 0 0 60.416l426.666666 426.666667a42.666667 42.666667 0 1 0 60.416-60.416L358.997333 512z" fill="#ffffff" p-id="3783"></path></svg>',
-  Nt =
-    '<svg t="1680879474772" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="970" width="32" height="32"><path d="M665.002667 512L268.458667 115.541333a42.666667 42.666667 0 1 1 60.416-60.416l426.666666 426.666667a42.666667 42.666667 0 0 1 0 60.416l-426.666666 426.666667a42.666667 42.666667 0 1 1-60.416-60.416L665.002667 512z" fill="#ffffff" p-id="971"></path></svg>',
-  Yt =
-    '<svg t="1680969261988" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2989" width="27" height="27"><path d="M316 672h60c4.4 0 8-3.6 8-8V360c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v304c0 4.4 3.6 8 8 8zM512 622c22.1 0 40-17.9 40-39 0-23.1-17.9-41-40-41s-40 17.9-40 41c0 21.1 17.9 39 40 39zM512 482c22.1 0 40-17.9 40-39 0-23.1-17.9-41-40-41s-40 17.9-40 41c0 21.1 17.9 39 40 39z" p-id="2990" fill="#ffffff"></path><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-40 728H184V184h656v656z" p-id="2991" fill="#ffffff"></path><path d="M648 672h60c4.4 0 8-3.6 8-8V360c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v304c0 4.4 3.6 8 8 8z" p-id="2992" fill="#ffffff"></path></svg>',
-  Bt =
-    '<svg t="1681008988742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8577" width="25" height="25"><path d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-0.7-8.9-4.9-10.3l-56.7-19.5c-4.1-1.4-8.6 0.7-10.1 4.8-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4-31.6 31.6-68.4 56.4-109.3 73.8-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27-40.9-17.3-77.7-42.1-109.3-73.8-31.6-31.6-56.4-68.4-73.7-109.4-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27 40.9 17.3 77.7 42.1 109.3 73.8 9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47c-5.3 4.1-3.5 12.5 3 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l0.8-180.9c-0.1-6.6-7.8-10.3-13-6.2z" p-id="8578" fill="#ffffff"></path></svg>',
   It =
-    '<svg t="1681024383164" class="icon" viewBox="0 0 1275 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2647" width="26" height="26"><path d="M434.01678069 96.35177165a94.289884 94.289884 0 0 0-133.25765214 0L123.48607034 273.6248307A40.38110706 40.38110706 0 0 0 180.5243836 331.26886006l146.48246438-146.98722794v683.24832532a40.38110706 40.38110706 0 0 0 80.76221328 0V184.28163212L554.25152647 331.26886006c0.60571692 0.70666946 1.31238556 1.31238556 2.01905503 2.01905585a40.38110706 40.38110706 0 0 0 55.01925824-59.15832165zM1151.48809462 650.58246162a40.38110706 40.38110706 0 0 0-57.03831326-2.01905503 19.08007305 19.08007305 0 0 0-2.01905503 2.01905503l-146.28055929 146.38151184V113.71564814a40.38110706 40.38110706 0 0 0-80.76221329 0v683.24832532l-146.38151184-146.38151184a40.38110706 40.38110706 0 0 0-59.15832166 55.01925824l2.01905502 2.01905503 177.37401161 177.27305822a93.98702554 93.98702554 0 0 0 133.15669958 0l177.27305823-177.27305822a40.38110706 40.38110706 0 0 0 1.81714993-57.03831327z" p-id="2648" fill="#ffffff"></path></svg>',
+    '<svg t="1680879453428" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3782" width="32" height="32"><path d="M358.997333 512l396.544-396.458667a42.666667 42.666667 0 1 0-60.416-60.416l-426.666666 426.666667a42.666667 42.666667 0 0 0 0 60.416l426.666666 426.666667a42.666667 42.666667 0 1 0 60.416-60.416L358.997333 512z" fill="#ffffff" p-id="3783"></path></svg>',
+  At =
+    '<svg t="1680879474772" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="970" width="32" height="32"><path d="M665.002667 512L268.458667 115.541333a42.666667 42.666667 0 1 1 60.416-60.416l426.666666 426.666667a42.666667 42.666667 0 0 1 0 60.416l-426.666666 426.666667a42.666667 42.666667 0 1 1-60.416-60.416L665.002667 512z" fill="#ffffff" p-id="971"></path></svg>',
   Ht =
+    '<svg t="1680969261988" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2989" width="27" height="27"><path d="M316 672h60c4.4 0 8-3.6 8-8V360c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v304c0 4.4 3.6 8 8 8zM512 622c22.1 0 40-17.9 40-39 0-23.1-17.9-41-40-41s-40 17.9-40 41c0 21.1 17.9 39 40 39zM512 482c22.1 0 40-17.9 40-39 0-23.1-17.9-41-40-41s-40 17.9-40 41c0 21.1 17.9 39 40 39z" p-id="2990" fill="#ffffff"></path><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-40 728H184V184h656v656z" p-id="2991" fill="#ffffff"></path><path d="M648 672h60c4.4 0 8-3.6 8-8V360c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v304c0 4.4 3.6 8 8 8z" p-id="2992" fill="#ffffff"></path></svg>',
+  Rt =
+    '<svg t="1681008988742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8577" width="25" height="25"><path d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-0.7-8.9-4.9-10.3l-56.7-19.5c-4.1-1.4-8.6 0.7-10.1 4.8-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4-31.6 31.6-68.4 56.4-109.3 73.8-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27-40.9-17.3-77.7-42.1-109.3-73.8-31.6-31.6-56.4-68.4-73.7-109.4-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27 40.9 17.3 77.7 42.1 109.3 73.8 9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47c-5.3 4.1-3.5 12.5 3 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l0.8-180.9c-0.1-6.6-7.8-10.3-13-6.2z" p-id="8578" fill="#ffffff"></path></svg>',
+  Wt =
+    '<svg t="1681024383164" class="icon" viewBox="0 0 1275 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2647" width="26" height="26"><path d="M434.01678069 96.35177165a94.289884 94.289884 0 0 0-133.25765214 0L123.48607034 273.6248307A40.38110706 40.38110706 0 0 0 180.5243836 331.26886006l146.48246438-146.98722794v683.24832532a40.38110706 40.38110706 0 0 0 80.76221328 0V184.28163212L554.25152647 331.26886006c0.60571692 0.70666946 1.31238556 1.31238556 2.01905503 2.01905585a40.38110706 40.38110706 0 0 0 55.01925824-59.15832165zM1151.48809462 650.58246162a40.38110706 40.38110706 0 0 0-57.03831326-2.01905503 19.08007305 19.08007305 0 0 0-2.01905503 2.01905503l-146.28055929 146.38151184V113.71564814a40.38110706 40.38110706 0 0 0-80.76221329 0v683.24832532l-146.38151184-146.38151184a40.38110706 40.38110706 0 0 0-59.15832166 55.01925824l2.01905502 2.01905503 177.37401161 177.27305822a93.98702554 93.98702554 0 0 0 133.15669958 0l177.27305823-177.27305822a40.38110706 40.38110706 0 0 0 1.81714993-57.03831327z" p-id="2648" fill="#ffffff"></path></svg>',
+  Pt =
     '<svg t="1681024308661" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2241" width="22" height="22"><path d="M356.67458 1012.46055a39.345183 39.345183 0 0 1-55.673434 0L127.783977 839.636832a91.77264 91.77264 0 0 1 0-129.740741l172.725354-172.725354a39.345183 39.345183 0 0 1 57.640694 53.607812c-0.688541 0.688541-1.278718 1.377081-1.96726 1.967259L213.458113 735.47046h665.7205a39.345183 39.345183 0 0 1 0 78.690366H213.458113L356.67458 956.787115a39.345183 39.345183 0 0 1 0 55.673435zM105.357223 250.147625a39.345183 39.345183 0 0 0 39.345183 39.345184h665.720499l-142.626289 142.724652a39.345183 39.345183 0 1 0 53.607812 57.54233l1.96726-1.967259L896.097042 314.772089a91.575914 91.575914 0 0 0 0-129.740742L723.371688 12.502719a39.345183 39.345183 0 1 0-57.542331 53.706175l1.967259 1.967259 142.626289 142.626289H144.702406a39.345183 39.345183 0 0 0-39.345183 39.345183z" p-id="2242" fill="#ffffff"></path></svg>',
-  S = "#ffffff",
-  k = ({ tagName: o, parentTag: t, style: e = {} }) => {
-    const i = document.createElement(o);
+  M = "#ffffff",
+  S = ({ tagName: s, parentTag: t, style: e = {} }) => {
+    const i = document.createElement(s);
     return (
-      Object.keys(e).forEach((s) => {
-        i.style[s] = e[s];
+      Object.keys(e).forEach((o) => {
+        i.style[o] = e[o];
       }),
       t.appendChild(i),
       i
     );
   },
-  M = ({ zoom_reverse_scale: o = 1, zoom_scale: t = 1 }) => `
+  L = ({ zoom_reverse_scale: s = 1, zoom_scale: t = 1 }) => `
   @keyframes zoom {
       0% {
         transform: scale(0);
@@ -1179,7 +1230,7 @@ const $t =
     }
     @keyframes zoom_reverse {
       0% {
-        transform: scale(${o});
+        transform: scale(${s});
       }
       100% {
         transform: scale(0);
@@ -1338,7 +1389,7 @@ const $t =
       justify-content: center;
     }
 `;
-class Rt {
+class Ot {
   constructor(t) {
     (this.viewImage = t), (this._imgStyle = t._img.style), this.initOptions();
   }
@@ -1354,7 +1405,7 @@ class Rt {
       this.setLeftAndRight();
   }
   initOptions() {
-    (this._optionTag = k({
+    (this._optionTag = S({
       tagName: "div",
       parentTag: this.viewImage._el,
     })),
@@ -1366,7 +1417,7 @@ class Rt {
   // 统计
   setTotal() {
     this._totalTag ||
-      ((this._totalTag = k({
+      ((this._totalTag = S({
         tagName: "span",
         parentTag: this.viewImage._el,
       })),
@@ -1376,31 +1427,31 @@ class Rt {
   }
   // 还原图片大小
   setRestore() {
-    this.createTagCommon("_restoreTag", Yt, "还原图片原有尺寸", () => {
+    this.createTagCommon("_restoreTag", Ht, "还原图片原有尺寸", () => {
       this.viewImage._scale = 1;
     });
   }
   // 旋转功能
   setRotate() {
-    this.createTagCommon("_rotateTag", Bt, "图片旋转", () => {
+    this.createTagCommon("_rotateTag", Rt, "图片旋转", () => {
       this._rotate += 90;
     });
   }
   // 上下对调
   setUpAndDown() {
-    this.createTagCommon("_upAndDown", It, "上下对调", () => {
+    this.createTagCommon("_upAndDown", Wt, "上下对调", () => {
       this._scaleY == -1 ? (this._scaleY = 1) : (this._scaleY = -1);
     });
   }
   // 左右对调
   setLeftAndRight() {
-    this.createTagCommon("_leftAndRight", Ht, "左右对调", () => {
+    this.createTagCommon("_leftAndRight", Pt, "左右对调", () => {
       this._scaleX == -1 ? (this._scaleX = 1) : (this._scaleX = -1);
     });
   }
-  createTagCommon(t, e, i, s) {
+  createTagCommon(t, e, i, o) {
     this[t] ||
-      ((this[t] = k({
+      ((this[t] = S({
         tagName: "span",
         style: {
           display: "flex",
@@ -1413,7 +1464,7 @@ class Rt {
       (this[t].onclick = (n) => {
         n.stopPropagation(),
           (this._imgStyle.transition = "transform .3s"),
-          s && s(),
+          o && o(),
           this.setTransform();
       }));
   }
@@ -1424,12 +1475,12 @@ class Rt {
     }) scaleY(${this._scaleY}) scaleX(${this._scaleX})`;
   }
 }
-class Wt {
+class Xt {
   constructor(t) {
     const {
       isClickMask: e,
       isAutoSize: i,
-      pct: s,
+      pct: o,
       watchClose: n,
     } = t || {
       isClickMask: !0,
@@ -1441,9 +1492,9 @@ class Wt {
     };
     (this._isClickMask = e),
       (this._isAutoSize = i),
-      (this._pct = s),
+      (this._pct = o),
       (this._watchClose = n),
-      (this.createTag = k),
+      (this.createTag = S),
       this.init();
   }
   init() {
@@ -1454,7 +1505,7 @@ class Wt {
         tagName: "style",
         parentTag: document.head,
       })),
-      (this._style.innerHTML = M({})),
+      (this._style.innerHTML = L({})),
       (this._el = this.createTag({
         tagName: "div",
         parentTag: document.body,
@@ -1482,7 +1533,7 @@ class Wt {
         display: "inline-block",
       },
     });
-    (t.innerHTML = $t),
+    (t.innerHTML = Bt),
       (t.className = "yik-view-image_close"),
       (t.onclick = () => {
         this.close();
@@ -1495,7 +1546,7 @@ class Wt {
         },
       })),
       (this._left.className = "yik-view-image_left"),
-      (this._left.innerHTML = Ct),
+      (this._left.innerHTML = It),
       (this._left.onclick = (e) => {
         e.stopPropagation(),
           this._index - 1 >= 0
@@ -1510,7 +1561,7 @@ class Wt {
         },
       })),
       (this._right.className = "yik-view-image_right"),
-      (this._right.innerHTML = Nt),
+      (this._right.innerHTML = At),
       (this._right.onclick = (e) => {
         e.stopPropagation(),
           this._index + 1 < this._imgs.length
@@ -1534,11 +1585,11 @@ class Wt {
           this._options.setTransform();
       }),
       (this._img.className = "yik-view-image_img"),
-      (this._drag = new zt({
+      (this._drag = new Et({
         el: this._img,
         isBound: !1,
       })),
-      (this._options = new Rt(this));
+      (this._options = new Ot(this));
   }
   //消息提示
   showMsg(t, e = !0) {
@@ -1590,16 +1641,16 @@ class Wt {
           this._isAutoSize)
         ) {
           if (window.innerWidth < e) {
-            const s = e / window.innerWidth;
-            (this._scale = s / 8),
+            const o = e / window.innerWidth;
+            (this._scale = o / 8),
               (this._img.style.transform = `scale(${this._scale})`);
           } else if (window.innerHeight < i) {
-            const s = i / window.innerHeight;
-            (this._scale = s / 8),
+            const o = i / window.innerHeight;
+            (this._scale = o / 8),
               (this._img.style.transform = `scale(${this._scale})`);
           }
         } else this._img.style.transform = `scale(${this._scale})`;
-        (this._style.innerHTML = M({
+        (this._style.innerHTML = L({
           zoom_scale: this._scale,
         })),
           (this._img.style.animation = "zoom 0.5s"),
@@ -1615,7 +1666,7 @@ class Wt {
   }
   // 关闭
   close() {
-    (this._style.innerHTML = M({
+    (this._style.innerHTML = L({
       zoom_reverse_scale: this._scale,
     })),
       (this._msg.style.display = "none"),
@@ -1641,9 +1692,9 @@ class Wt {
             left: "50%",
             width: "50px",
             height: "50px",
-            "border-top": "2px solid" + S,
-            "border-left": "2px solid" + S,
-            "border-bottom": "2px solid" + S,
+            "border-top": "2px solid" + M,
+            "border-left": "2px solid" + M,
+            "border-bottom": "2px solid" + M,
             "border-right": "2px solid rgba(0,0,0,0)",
             "border-radius": "50%",
             animation: "rotate 0.5s linear infinite",
@@ -1672,7 +1723,7 @@ class Wt {
       }, 3e3));
   }
 }
-const At = {
+const Dt = {
   __name: "index",
   props: {
     show: {
@@ -1701,16 +1752,16 @@ const At = {
     },
   },
   emits: ["update:show", "closed"],
-  setup(o, { emit: t }) {
-    const e = o;
+  setup(s, { emit: t }) {
+    const e = s;
     let i = null;
     return (
-      z(
+      C(
         () => e.show,
-        (s) => {
-          s &&
-            $(() => {
-              (i = new Wt({
+        (o) => {
+          o &&
+            N(() => {
+              (i = new Xt({
                 isClickMask: e.isClickMask,
                 isAutoSize: e.isAutoSize,
                 pct: e.pct / 100,
@@ -1728,45 +1779,47 @@ const At = {
           immediate: !0,
         }
       ),
-      E(() => {
+      X(() => {
         i = null;
       }),
       () => {}
     );
   },
 };
-let Et = [et, nt, ht, dt, ut, pt, yt, Mt, At],
-  Ot = [Lt];
-const Pt = (o) => {
+let Vt = [at, ht, gt, mt, vt, wt, kt, Nt, Dt],
+  Ut = [Yt];
+const jt = (s) => {
   try {
-    Et.forEach((t) => {
-      o.component(t.name, t);
+    Vt.forEach((t) => {
+      s.component(t.name, t);
     }),
-      Ot.forEach((t) => {
-        o.directive(t.name, t);
+      Ut.forEach((t) => {
+        s.directive(t.name, t);
       }),
       H("YikUi 指令和组件，已全局注册.");
   } catch {
     H("YikUi 指令和组件，全局注册失败.", "error");
   }
 };
-let Ft = { install: Pt };
+let ee = { install: jt };
 export {
-  yt as YikHorizontalScreen,
-  pt as YikIsKeyboard,
-  ut as YikMarquee,
-  dt as YikMaxView,
-  Mt as YikScroll,
-  ht as YikSign,
-  nt as YikTab,
-  et as YikTabs,
-  Ft as YikUi,
-  At as YikViewImage,
-  Ut as useDebounce,
-  Vt as useMitt,
-  jt as useResize,
-  qt as useThrottle,
-  wt as useWatchDom,
-  xt as useWatchViewArea,
-  Dt as yikIsPhone,
+  kt as YikHorizontalScreen,
+  wt as YikIsKeyboard,
+  vt as YikMarquee,
+  mt as YikMaxView,
+  Nt as YikScroll,
+  gt as YikSign,
+  ht as YikTab,
+  at as YikTabs,
+  ee as YikUi,
+  Dt as YikViewImage,
+  Zt as global,
+  te as useAuth,
+  Gt as useDebounce,
+  Kt as useMitt,
+  Jt as useResize,
+  Qt as useThrottle,
+  St as useWatchDom,
+  $t as useWatchViewArea,
+  Ft as yikIsPhone,
 };
