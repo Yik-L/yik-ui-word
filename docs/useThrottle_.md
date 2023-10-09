@@ -25,10 +25,10 @@
   {{ desc }}
 </template>
 <script setup>
-import { useThrottle_ } from "./yik-ui.js";
+import { useThrottle } from "./yik-ui.js";
 import { shallowRef } from "vue";
 const desc = shallowRef("");
-const input = useThrottle_((e) => {
+const input = useThrottle((e) => {
   desc.value = e.target.value;
 }, 1000);
 </script>
